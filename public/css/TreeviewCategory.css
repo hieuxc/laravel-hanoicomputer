@@ -1,0 +1,25 @@
+.treeview-menu, #treeview-category {
+    list-style-type: none;
+}
+#treeview-category {
+    margin: 0;
+    padding: 0;
+}
+.treeview-menu{
+    display: none;
+}
+.cate-item {
+    display:block;
+    width: 20rem;
+    padding: 5px 10px;
+    background-color: #dddddd;
+    border-bottom: 1px solid #ffffff;
+    cursor: pointer;
+}
+.cate-item:hover {
+    background-color: rgb(50, 87, 250);
+    color: aliceblue;
+}
+.cate-icon-down{
+    transform: rotate(90deg);
+}
