@@ -9,6 +9,7 @@ $(".cate-item").each(function () {
             "action",
             "/admin/categories/" + $(this).data("id")
         );
+        $("#product_type_name").val($(this).data("id2"))
     });
 });
 $("#delete_btn,#edit_link").each(function () {

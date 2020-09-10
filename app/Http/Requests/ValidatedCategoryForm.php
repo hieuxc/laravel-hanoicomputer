@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ValidatedCategoryForm extends FormRequest
 {
@@ -25,7 +26,10 @@ class ValidatedCategoryForm extends FormRequest
     {
         return [
             'parent_id' => 'required',
-            'name' => 'required|unique:categories'
+            'name' => [
+                'required',
+                Rule::unique('categories')->ignore($this->category),
+            ]
         ];
     }
 

@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['parent_id', 'name', 'slug'];
+    protected $fillable = [
+        'parent_id', 'product_type_id', 'name', 'slug'
+    ];
+
+    public function product_type()
+    {
+        return $this->belongTo('App\ProductType');
+    }
 }
