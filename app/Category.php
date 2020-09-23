@@ -14,6 +14,11 @@ class Category extends Model
 
     public function product_type()
     {
-        return $this->belongTo('App\ProductType');
+        return $this->belongsTo('App\ProductType');
+    }
+
+    public function products()
+    {
+        return $this->hasMany('App\Product');
     }
 }

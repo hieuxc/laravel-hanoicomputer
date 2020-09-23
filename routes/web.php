@@ -15,13 +15,22 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front-end.index');
 });
+
+// Route::get('/detail', function () {
+//     return view('front-end.product-detail');
+// });
 
 Route::post('logout', 'Auth\LoginController@userLogout')->name('logout');
 
 Route::prefix('user')->group(function () {
     Route::get('/', 'UserController@index')->name('user.index');
+});
+
+Route::prefix('cart')->group(function () {
+    Route::get('/', 'CartController@index')->name('cart.index');
+    Route::get('add/{product_id}', 'CartController@add')->name('cart.add');
 });
 
 Route::prefix('admin')->group(function () {
@@ -39,3 +48,5 @@ Route::prefix('admin')->group(function () {
     Route::resource('product-types/{product_type_id}/filters', 'FilterController');
     Route::resource('filters/{filter_id}/filter-options', 'FilterOptionController');
 });
+
+Route::get('/{key}', 'HomeController@index');

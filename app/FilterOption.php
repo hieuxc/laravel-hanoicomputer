@@ -13,7 +13,7 @@ class FilterOption extends Model
     ];
 
     public function filter(){
-        return $this->belongTo('App\Filter');
+        return $this->belongsTo('App\Filter');
     }
 
     public function products()

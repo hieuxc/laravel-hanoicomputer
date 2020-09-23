@@ -1,0 +1,3336 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+
+    <!-- meta mac dinh  -->
+    <title>Thông tin giỏ hàng</title>
+    <meta name="description" content="Xem các sản phẩm đã thêm vào trong giỏ hàng" />
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="keywords" content="giỏ hàng" />
+    <meta property="fb:app_id" content="1033127020153903" />
+    <meta property="fb:admins" content="100001129488733" />
+    <meta content="DOCUMENT" name="RESOURCE-TYPE" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+
+    <link rel="shortcut icon" href="/template/may2020/images/favicon.png" type="image/x-icon" />
+
+
+    <meta property="og:title" content="Thông tin giỏ hàng" />
+    <meta property="og:description" content="Xem các sản phẩm đã thêm vào trong giỏ hàng" />
+    <meta property="og:url" content="https://www.hanoicomputer.vn/cart" />
+    <meta property="og:image" content="https://hanoicomputercdn.com/media/banner/logo_Logo_2019.png" />
+    <meta property="og:image:alt" content="Thông tin giỏ hàng" />
+
+
+
+    <link rel="stylesheet" href="https://hanoicomputercdn.com/template/may2020/script/style2020.css?v=583544">
+
+    <link rel="stylesheet" href="https://hanoicomputercdn.com/template/may2020/script/otherstyle2020.css?v=53312">
+
+    <link rel="stylesheet" href="https://hanoicomputercdn.com/template/may2020/script/media2020.css?v=44">
+    <!-- css cho trang buildpc, tan nhiet -->
+
+
+
+    <link rel="stylesheet" href="/template/default/script/all.css?v=1" type="text/css" />
+
+
+    <script src="https://hanoicomputercdn.com/template/may2020/script/jquery224.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+    <!--<div id="cart-fixed-2019" onclick="location.href='/gio-hang'">
+  <i class="icons icon-fixed-bag fal fa-shopping-cart"></i>
+  <p>Giỏ hàng của bạn <br><b>Có <span id="count_shopping_cart_store_2">0</span> sản phẩm</b></p>
+</div>-->
+    <div id="icon-fixed-right">
+        <!--<a href="javascript:void(0)" onclick="showPopup('popup-facebook');"><i class="icons fab fa-facebook-f"></i></a>
+  <a href="javascript:void(0)" onclick="showPopup('popup-youtube');"><i class="icons fab fa-youtube"></i></a>-->
+        <a href="https://www.facebook.com/www.hanoicomputer.vn/" target="_blank"><i class="icons fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/channel/UCIoWNINN5sJcx1zboLXZmeA" target="_blank"><i class="icons fab fa-youtube"></i></a>
+        <a href="javascript:void(0)" onclick="showPopup('popup-lien-he');"><i class="icons fas fa-envelope"></i></a>
+        <a href="javascript:void(0)" onclick="showPopup('popup-address');"><i class="icons fas fa-phone fa-flip-horizontal"></i></a>
+        <a href="/buildpc"><i class="icons fa fa-wrench"></i></a>
+        <a href="https://www.messenger.com/t/www.hanoicomputer.vn" target="_blank"><i class="icons fab fa-facebook-messenger"></i></a>
+        <a href="javascript:void(0)" id="toTop" style="display:none;" class="active"><i class="icons far fa-arrow-up"></i></a>
+    </div>
+
+
+    <div class="popup-common" id="popup-lien-he">
+        <div class="title-popup"><span>Liên hệ với chúng tôi</span><i class="close fal fa-times" onclick="closePopupCommon()"></i></div>
+        <div class="content-popup">
+            <form>
+                <input type="text" size="50" name="contact_name" id="contact_name" autocomplete="off" placeholder="Họ và tên" class="khaipv-input" />
+                <input type="text" size="50" name="contact_email" id="contact_email" autocomplete="off" placeholder="Email" class="khaipv-input" />
+                <input type="text" size="50" name="contact_tel" id="contact_tel" autocomplete="off" placeholder="Số điện thoại"
+                    class="khaipv-input" />
+                <textarea rows="8" name="contact_message" id="contact_message" style="width:100% !important;" placeholder="Nội dung liên hệ"
+                    class="khaipv-textarea"></textarea>
+                <input type="button" class="submit-button" value="Gửi liên hệ" onclick="send_contact();" style="cursor:pointer;" />
+                <input type="hidden" value="send" name="action" />
+                <input type="hidden" name="return_url" value="https://www.hanoicomputer.vn/cart" />
+            </form>
+        </div>
+        <!--content-popup-->
+    </div>
+    <!--popup-->
+
+
+    <div class="popup-common" id="popup-youtube">
+        <div class="title-popup"><span>Quan tâm đến chúng tôi</span><i class="close fal fa-times" onclick="closePopupCommon()"></i></div>
+        <input type="hidden" value="https://www.youtube.com/embed/V69Le8tNPac" id="url-video-popup" />
+        <div class="content-popup" style="padding:0; height:315px;" id="content-popup-youtube">
+
+        </div>
+    </div>
+
+    <div class="popup-common" id="popup-address">
+        <div class="title-popup"><span>Hotline liên hệ mua hàng</span><i class="close fal fa-times" onclick="closePopupCommon()"></i></div>
+        <div class="content-popup" style="padding:0 20px; font-size:14px; line-height:1.6;">
+            <ul class="showroom-right-menu">
+                <li>
+                    <span class="showroom-order">01</span>
+                    <p class="showroom-address">Số 129+131 Lê Thanh Nghị - Hai Bà Trưng - Hà Nội</p>
+                    <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 101)</b></p>
+                </li>
+                <li>
+                    <span class="showroom-order">02</span>
+                    <p class="showroom-address">Số 43 Thái Hà - Đống Đa - Hà Nội</p>
+                    <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 202) - (024) 35380088</b></p>
+                </li>
+                <li>
+                    <span class="showroom-order">03</span>
+                    <p class="showroom-address">Số 57 Nguyễn Văn Huyên - Cầu Giấy - Hà Nội</p>
+                    <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 503) - (024) 38610088</b></p>
+                </li>
+                <li>
+                    <span class="showroom-order">04</span>
+                    <p class="showroom-address">A1-6 Lô 8A - Lê Hồng Phong - Ngô Quyền - Hải Phòng</p>
+                    <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 301) - (022) 58830013</b></p>
+                </li>
+                <li>
+                    <span class="showroom-order">05</span>
+                    <p class="showroom-address">Số 511+513 Quang Trung - Hà Đông - Hà Nội</p>
+                    <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 600) - (024) 38580088</b></p>
+                </li>
+                <li>
+                    <span class="showroom-order">06</span>
+                    <p class="showroom-address">Số 520 Cách Mạng Tháng Tám - Quận 3 - TP. Hồ Chí Minh</p>
+                    <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 701) - (028) 73078877</b></p>
+                </li>
+                <li>
+                    <span class="showroom-order">07</span>
+                    <p class="showroom-address">Số 398 Nguyễn Văn Cừ - Long Biên - Hà Nội</p>
+                    <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">19001903 (máy lẻ 808) - (024) 73088877</b></p>
+                </li>
+            </ul>
+        </div>
+        <!--content-popup-->
+    </div>
+    <!--popup-->
+
+    <div class="popup-common" id="popup-facebook">
+        <div class="title-popup"><span>Quan tâm đến chúng tôi</span><i class="close fal fa-times" onclick="closePopupCommon()"></i></div>
+        <div class="content-popup" style="padding:10px 20px; font-size:14px; line-height:1.6;">
+            <div style="height:130px;">
+                <div class="fb-page" data-href="https://www.facebook.com/www.hanoicomputer.vn/" data-width="455" data-height="70"
+                    data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/www.hanoicomputer.vn/" class="fb-xfbml-parse-ignore"><a
+                            href="https://www.facebook.com/www.hanoicomputer.vn/">Fanpage</a></blockquote>
+                </div>
+            </div>
+            <div class="line"></div>
+            <p><i>Hãy <b class="red">Like fanpage</b> để trở thành <b class="blue">Fan của Hanoicomputer</b> ngay trong hôm nay!</i></p>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div id="bg-opacity" onclick="closePopupCommon()"></div>
+
+
+    <span id="tooltip-category-fixed-left">title</span>
+    <div id="category-fixed-left">
+        <a href="/laptop-may-tinh-xach-tay" id="vt-159" data-title="Laptop, Máy Tính Bảng"></a><a href="/may-tinh-choi-game" id="vt-178"
+            data-title="PC Gaming, Streaming"></a><a href="/pc-workstations" id="vt-388" data-title="PC Đồ Họa, Render, Máy Chủ"></a><a
+            href="/may-tinh-van-phong" id="vt-137" data-title="PC Văn Phòng, AIO, Mini PC"></a><a href="/thiet-bi-van-phong" id="vt-12"
+            data-title="Thiết Bị Văn Phòng"></a><a href="/linh-kien-may-tinh" id="vt-6" data-title="Linh Kiện Máy Tính"></a><a
+            href="/man-hinh-may-tinh" id="vt-39" data-title="Màn Hình Máy Tính"></a><a href="/phim-chuot-gaming-gear" id="vt-105"
+            data-title="Phím Chuột, Gaming Gear"></a><a href="/tan-nhiet-cooling" id="vt-379" data-title="Tản Nhiệt PC, Cooling"></a><a
+            href="/tivi-dien-lanh" id="vt-906" data-title="Tivi, Điện Lạnh, Gia Dụng"></a><a href="/camera-thiet-bi-an-ninh" id="vt-260"
+            data-title="Camera, TB An Ninh"></a><a href="/thiet-bi-nghe-nhin" id="vt-41" data-title="TB Âm Thanh, Chụp Hình"></a><a
+            href="/thiet-bi-sieu-thi-cua-hang" id="vt-395" data-title="TB Siêu Thị, Máy Bán Hàng"></a><a href="/tb-hoi-nghi-truong-hoc" id="vt-480"
+            data-title="Họp, Giảng Dạy, Stream"></a><a href="/thiet-bi-thong-minh" id="vt-481" data-title="Thiết Bị Nhà Thông Minh"></a><a
+            href="/thiet-bi-luu-tru" id="vt-18" data-title="Thiết Bị Lưu Trữ, USB, Thẻ"></a><a href="/thiet-bi-mang" id="vt-23"
+            data-title="Thiết Bị Mạng, Phần Mềm"></a><a href="/phu-kien" id="vt-455" data-title="Phụ Kiện Laptop, PC, Khác"></a><a
+            href="/thiet-bi-di-dong" id="vt-899" data-title="Thiết Bị Di Động"></a><a href="/san-pham-thanh-ly" id="vt-165"
+            data-title="Xả Kho Giá Sốc - Mua Hàng Sâu Hơn Giá Gốc 😭"></a><a href="/gian-hang-thanh-ly" id="vt-935"
+            data-title="Gian Hàng Thanh Lý"></a><a href="/usb-wifi-cho-pc" id="vt-951" data-title="USB Wifi Cho PC"></a><a href="/ssd-samsung"
+            id="vt-952" data-title="SSD SamSung"></a>
+    </div>
+    <div id="tooltip"></div>
+    <div id="kmaitooltip"> </div>
+
+    <!--Array
+(
+    [name] => cart
+    [view] => cart-new
+    [view_id] => 0
+)
+1-->
+
+    <div class="khai-overlay"></div>
+    <header class="header-2019">
+        <div class="container-2019">
+            <div class="header-top">
+                <div class="header-showroom header-top-item khai-item js-hover-menu" data-tpl="html/he_thong_showroom"
+                    data-display-node="js-he_thong_showroom">
+                    <span class="top-header-span"><i class="fas fa-share-alt" style="margin-right: 5px"></i> Hệ thống Showroom </span>
+                    <div id="js-he_thong_showroom" class="js-header-template" style="display:none"></div>
+                </div>
+
+                <div class="header-top-item khai-item js-hover-menu" data-tpl="html/ban_hang_truc_tuyen" data-display-node="js-ban_hang_truc_tuyen">
+                    <span id="mr-sep" class="top-header-span animated-linear-gradient"><i class="fas fa-phone fa-flip-horizontal"
+                            style="margin-right: 5px"></i> Bán hàng Online</span>
+                    <div id="js-ban_hang_truc_tuyen" class="js-header-template" style="display:none"></div>
+                </div>
+
+                <div class="header-top-item khai-item js-hover-menu" data-tpl="html/kinh_doanh_hcm" data-display-node="js-kinh_doanh_hcm">
+                    <span id="mr-sep" class="top-header-span animated-linear-gradient"><i class="fas fa-phone fa-flip-horizontal"
+                            style="margin-right: 5px"></i> Bán hàng - TP HCM</span>
+                    <div id="js-kinh_doanh_hcm" class="js-header-template" style="display:none"></div>
+                </div>
+
+                <div class="header-showroom khai-item header-top-item js-hover-menu" data-tpl="html/kinh_doanh_showroom"
+                    data-display-node="js-kinh_doanh_showroom">
+                    <span class="top-header-span animated-linear-gradient"><i class="fas fa-phone fa-flip-horizontal" style="margin-right: 5px"></i>
+                        Bán hàng - Showroom </span>
+                    <div id="js-kinh_doanh_showroom" class="js-header-template" style="display:none"></div>
+                </div>
+
+                <!--<div class="header-top-item">
+               <a target="_blank" href="https://thongtin.hanoicomputer.vn/huong-dan-mua-hang-tra-gop/"><i class="fas fa-dollar-sign" style="margin-right: 5px"></i>Bán hàng trả góp</a>
+            </div>-->
+                <div class="header-top-item">
+                    <span>
+                        <a href="https://news.hanoicomputer.vn/" class="after_down_arrow" target="_blank"><i class="fas fa-rss"
+                                style="margin-right: 5px"></i>Tin công nghệ</a>
+                    </span>
+                </div>
+                <div class="header-top-item">
+                    <span>
+                        <a href="https://www.hanoicomputer.vn/tin-khuyen-mai-su-kien" class="after_down_arrow" target="_blank"><i class="far fa-tags"
+                                style="margin-right: 5px"></i>Khuyến mại</a>
+                    </span>
+                </div>
+                <div class="header-top-item">
+                    <span>
+                        <a href="/tra-bao-hanh" class="after_down_arrow" target="_blank"><i class="far fa-shield-check"
+                                style="margin-right: 5px"></i>Tra cứu bảo hành</a>
+                    </span>
+                </div>
+                <div class="header-top-item">
+                    <span>
+                        <a target="_blank" href="https://thongtin.hanoicomputer.vn/tuyen-dung/" rel="nofollow"><i class="far fa-bullhorn"
+                                style="margin-right: 5px"></i>Tuyển dụng</a>
+                    </span>
+                </div>
+                <div class="header-top-item">
+                    <span>
+                        <a target="_blank" href="https://www.hanoicomputer.vn/huong-dan-tra-cuu-va-nhan-hoa-don-dien-tu" rel="nofollow"><i
+                                class="fas fa-file-invoice-dollar" style="margin-right: 5px"></i>In hóa đơn điện tử</a>
+                    </span>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="header-bottom-row pb-10">
+                    <div class="header-bottom-left">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="https://hanoicomputercdn.com/media/lib/logo-trang.png" alt="logo Hanoicomputer">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="align-items-end d-flex header-bottom-right">
+                        <div class="khaipv-hotline">
+                            <div class="header-seo-links">
+                                <a href="/laptop-may-tinh-xach-tay">Laptop</a>
+                                <a href="/cpu-bo-vi-xu-ly">CPU</a>
+                                <a href="/may-tinh-choi-game">Máy Tính Chơi Game</a>
+                                <a href="/man-hinh-may-tinh">Màn Hình Máy Tính</a>
+                            </div>
+                        </div>
+                        <div class="khaipv-buildpc">
+                            <a href="/buildpc"><i class="far fa-wrench" style="margin-right: 5px"></i>Xây dựng cấu hình máy tính</a>
+                            <a href="/xay-dung-tan-nhiet"><i class="far fa-temperature-frigid" style="margin-right: 5px"></i>Xây dựng tản nhiệt nước
+                                PC</a>
+                        </div>
+                        <div class="user-action">
+                            <div class="align-items-center d-flex position-relative user-action-wrap">
+                                <div class="hotline">
+                                    <span class="header-hotline">Mua hàng online<b>1900.1903</b></span>
+                                    <div class="sub">
+                                        <div class="item"><span class="hotline-number">0</span><span>Chăm sóc khách hàng (9h - 17h30)</span></div>
+                                        <div class="item"><span class="hotline-number">1</span><span>Mua hàng trực tuyến (9h - 21h30)</span></div>
+                                        <div class="item"><span class="hotline-number">2</span><span>Hỗ trợ kỹ thuật (9h - 21h30)</span></div>
+                                        <div class="item"><span class="hotline-number">3</span><span>Dịch vụ kỹ thuật - bảo hành (9h - 17h30)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header-separator hide-on-fixed"></div>
+                                <div class="user-action-item ">
+                                    <div class="d-flex align-start taikhoan">
+                                        <span class="header-cart-icon"><i class="fas fa-user"></i></span>
+                                        <span class="taikhoan-text">
+                                            <a href="/dang-ky" class="taikhoan-link">Đăng ký</a>
+                                            <a href="/dang-nhap" class="taikhoan-link">Đăng nhập</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="header-separator"></div>
+                                <div class="user-action-item " id="js-cart-hover">
+                                    <div class="cart">
+                                        <div class="cart-summary">
+                                            <span class="header-cart-icon"><i class="fas fa-shopping-bag"></i></span>
+                                            <b id="count_shopping_cart_store">0</b>
+                                            <a href="/cart">Giỏ hàng</a>
+                                        </div>
+                                        <div id="get_item_cart">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom-row pb-10">
+                    <div class="header-bottom-item">
+                        <div class="header-bottom-btn danhmuc-wrap ">
+                            <a href="javascript:void(0);" class="custom-btn">Danh mục sản phẩm <i class="far fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <div class="hover-content danhmuc-content">
+                                <ul class="ul ul_menu_2019" id="menu-2019">
+
+
+
+                                    <li id="vt-159" class="js-hover-menu" data-id="159" data-tpl="html/menu_cat_159" data-display-node="sub_nav_159">
+                                        <a href="/laptop-may-tinh-xach-tay" class="root">Laptop, Máy Tính Bảng</a>
+
+                                        <div class="sub_nav" id="sub_nav_159" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-178" class="js-hover-menu" data-id="178" data-tpl="html/menu_cat_178" data-display-node="sub_nav_178">
+                                        <a href="/may-tinh-choi-game" class="root">PC Gaming, Streaming</a>
+
+                                        <div class="sub_nav" id="sub_nav_178" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-388" class="js-hover-menu" data-id="388" data-tpl="html/menu_cat_388" data-display-node="sub_nav_388">
+                                        <a href="/pc-workstations" class="root">PC Đồ Họa, Render, Máy Chủ</a>
+
+                                        <div class="sub_nav" id="sub_nav_388" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-137" class="js-hover-menu" data-id="137" data-tpl="html/menu_cat_137" data-display-node="sub_nav_137">
+                                        <a href="/may-tinh-van-phong" class="root">PC Văn Phòng, AIO, Mini PC</a>
+
+                                        <div class="sub_nav" id="sub_nav_137" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-12" class="js-hover-menu" data-id="12" data-tpl="html/menu_cat_12" data-display-node="sub_nav_12">
+                                        <a href="/thiet-bi-van-phong" class="root">Thiết Bị Văn Phòng</a>
+
+                                        <div class="sub_nav" id="sub_nav_12" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-6" class="js-hover-menu" data-id="6" data-tpl="html/menu_cat_6" data-display-node="sub_nav_6">
+                                        <a href="/linh-kien-may-tinh" class="root">Linh Kiện Máy Tính</a>
+
+                                        <div class="sub_nav" id="sub_nav_6" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-39" class="js-hover-menu" data-id="39" data-tpl="html/menu_cat_39" data-display-node="sub_nav_39">
+                                        <a href="/man-hinh-may-tinh" class="root">Màn Hình Máy Tính</a>
+
+                                        <div class="sub_nav" id="sub_nav_39" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-105" class="js-hover-menu" data-id="105" data-tpl="html/menu_cat_105" data-display-node="sub_nav_105">
+                                        <a href="/phim-chuot-gaming-gear" class="root">Phím Chuột, Gaming Gear</a>
+
+                                        <div class="sub_nav" id="sub_nav_105" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-379" class="js-hover-menu" data-id="379" data-tpl="html/menu_cat_379" data-display-node="sub_nav_379">
+                                        <a href="/tan-nhiet-cooling" class="root">Tản Nhiệt PC, Cooling</a>
+
+                                        <div class="sub_nav" id="sub_nav_379" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-906" class="js-hover-menu" data-id="906" data-tpl="html/menu_cat_906" data-display-node="sub_nav_906">
+                                        <a href="/tivi-dien-lanh" class="root">Tivi, Điện Lạnh, Gia Dụng</a>
+
+                                        <div class="sub_nav" id="sub_nav_906" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-260" class="js-hover-menu" data-id="260" data-tpl="html/menu_cat_260" data-display-node="sub_nav_260">
+                                        <a href="/camera-thiet-bi-an-ninh" class="root">Camera, TB An Ninh</a>
+
+                                        <div class="sub_nav" id="sub_nav_260" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-41" class="js-hover-menu" data-id="41" data-tpl="html/menu_cat_41" data-display-node="sub_nav_41">
+                                        <a href="/thiet-bi-nghe-nhin" class="root">TB Âm Thanh, Chụp Hình</a>
+
+                                        <div class="sub_nav" id="sub_nav_41" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-395" class="js-hover-menu" data-id="395" data-tpl="html/menu_cat_395" data-display-node="sub_nav_395">
+                                        <a href="/thiet-bi-sieu-thi-cua-hang" class="root">TB Siêu Thị, Máy Bán Hàng</a>
+
+                                        <div class="sub_nav" id="sub_nav_395" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-480" class="js-hover-menu" data-id="480" data-tpl="html/menu_cat_480" data-display-node="sub_nav_480">
+                                        <a href="/tb-hoi-nghi-truong-hoc" class="root">Họp, Giảng Dạy, Stream</a>
+
+                                        <div class="sub_nav" id="sub_nav_480" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-481" class="js-hover-menu" data-id="481" data-tpl="html/menu_cat_481" data-display-node="sub_nav_481">
+                                        <a href="/thiet-bi-thong-minh" class="root">Thiết Bị Nhà Thông Minh</a>
+
+                                        <div class="sub_nav" id="sub_nav_481" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-18" class="js-hover-menu" data-id="18" data-tpl="html/menu_cat_18" data-display-node="sub_nav_18">
+                                        <a href="/thiet-bi-luu-tru" class="root">Thiết Bị Lưu Trữ, USB, Thẻ</a>
+
+                                        <div class="sub_nav" id="sub_nav_18" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-23" class="js-hover-menu" data-id="23" data-tpl="html/menu_cat_23" data-display-node="sub_nav_23">
+                                        <a href="/thiet-bi-mang" class="root">Thiết Bị Mạng, Phần Mềm</a>
+
+                                        <div class="sub_nav" id="sub_nav_23" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+                                    <li id="vt-455" class="js-hover-menu" data-id="455" data-tpl="html/menu_cat_455" data-display-node="sub_nav_455">
+                                        <a href="/phu-kien" class="root">Phụ Kiện Laptop, PC, Khác</a>
+
+                                        <div class="sub_nav" id="sub_nav_455" style="left: 200px; display: none;">
+                                            <!--//load content here-->
+                                        </div>
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header-bottom-btn chinhsach-wrap">
+                            <a href="/chinh-sach" class="custom-btn">Chính sách - Hướng dẫn <i class="far fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <div class="hover-content chinhsach-content"
+                                style="min-width: 1036px !important;box-shadow: 1px 1px 15px rgba(0,0,0,0.15);">
+                                <div class="policy-column">
+                                    <div class="hnc-policy-title">Thông tin Hanoicomputer</div>
+                                    <div class="hnc-policy-separator"></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/gioi-thieu-ve-hanoicomputer">Giới thiệu Hanoicomputer</a>
+                                    </div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="https://thongtin.hanoicomputer.vn/tuyen-dung/"
+                                            rel="nofollow">Tuyển dụng</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="https://news.hanoicomputer.vn/" rel="nofollow">Tin tức công
+                                            nghệ</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/diven-he" rel="nofollow">Ý kiến khách hàng</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/thong-tin-lien-he">Liên hệ, hợp tác</a></div>
+                                </div>
+                                <div class="policy-column">
+                                    <div class="hnc-policy-title"><span>Thông tin khuyến mại</span></div>
+                                    <div class="hnc-policy-separator"></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="https://news.hanoicomputer.vn/thong-tin-khuyen-mai/"
+                                            rel="nofollow">Thông tin khuyến mại</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/chuong-trinh-khuyen-mai" rel="nofollow">Sản phẩm khuyến
+                                            mại</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/san-pham-ban-chay" rel="nofollow">Sản phẩm bán chạy</a>
+                                    </div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/san-pham-moi" rel="nofollow">Sản phẩm mới</a></div>
+                                </div>
+                                <div class="policy-column">
+                                    <div class="hnc-policy-title"><span>Chính sách chung</span></div>
+                                    <div class="hnc-policy-separator"></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/chinh-sach">Chính sách chung</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/bao-mat-thong-tin-khach-hang">Bảo mật thông tin khách
+                                            hàng</a> </div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/chinh-sach-hang-chinh-hang">Chính sách hàng chính hãng</a>
+                                    </div>
+                                    <!--<div class="hnc-policy-link"><a target="_blank" href="/chinh-sach-gia-san-pham" >Chính sách giá sản phẩm</a> </div> -->
+                                    <div class="hnc-policy-link"><a target="_blank" href="/chinh-sach-giao-hang">Chính sách giao hàng</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/doi-tra-va-hoan-tien">Chính sách đổi trả và hoàn tiền</a>
+                                    </div>
+                                    <!--<div class="hnc-policy-link"><a target="_blank" href="/chinh-sach-hoan-tien">Chính sách hoàn tiền</a></div> -->
+                                    <div class="hnc-policy-link"><a target="_blank" href="/chinh-sach-bao-hanh">Chính sách bảo hành</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/chinh-sach-cho-doanh-nghiep">Chính sách cho doanh
+                                            nghiệp</a> </div>
+                                    <!-- <div class="hnc-policy-link"><a target="_blank" href="/chinh-sach-gamenet">Chính sách GameNet</a> </div>-->
+                                </div>
+                                <div class="policy-column">
+                                    <div class="hnc-policy-title"><span>Hỗ trợ khách hàng</span></div>
+                                    <div class="hnc-policy-separator"></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/huong-dan-mua-hang-truc-tuyen">Hướng dẫn mua hàng trực
+                                            tuyến</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/huong-dan-thanh-toan">Hướng dẫn thanh toán</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/huong-dan-mua-hang-tra-gop">Hướng dẫn mua hàng trả góp</a>
+                                    </div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/huong-dan-tra-cuu-va-nhan-hoa-don-dien-tu">Tra cứu hóa đơn
+                                            điện tử</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/tra-bao-hanh" rel="nofollow">Tra cứu sản phẩm gửi bảo
+                                            hành</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/yeu-cau-bao-hanh">Gửi yêu cầu bảo hành</a></div>
+                                    <div class="hnc-policy-link"><a target="_blank" href="/bieu-mau-hop-dong">Biểu mẫu hợp đồng</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-bottom-btn brand-wrap js-hover-menu" data-tpl="html/menu_brand" data-display-node="js-menu_brand">
+                            <span class="custom-btn">Tìm theo hãng <i class="far fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                            <div class="hover-content brand-content" id='js-menu_brand'
+                                style="box-shadow: 1px 1px 15px rgba(0,0,0,0.15); display:none;">
+                                <!--//show brand here-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-bottom-item w-100 col p-0">
+                        <div class="main-search">
+                            <form name="search" action="/tim">
+                                <input type="hidden" name="scat_id" value="">
+                                <div class="select no-border">
+                                    <div class="title">Tất cả danh mục </div>
+                                    <div class="content" style="display: none;">
+
+                                        <a class="item" href="javascript:void(0)" data-value="159">Laptop, Máy Tính Bảng </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="178">PC Gaming, Streaming </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="388">PC Đồ Họa, Render, Máy Chủ </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="137">PC Văn Phòng, AIO, Mini PC </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="12">Thiết Bị Văn Phòng </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="6">Linh Kiện Máy Tính </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="39">Màn Hình Máy Tính </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="105">Phím Chuột, Gaming Gear </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="379">Tản Nhiệt PC, Cooling </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="906">Tivi, Điện Lạnh, Gia Dụng </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="260">Camera, TB An Ninh </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="41">TB Âm Thanh, Chụp Hình </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="395">TB Siêu Thị, Máy Bán Hàng </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="480">Họp, Giảng Dạy, Stream </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="481">Thiết Bị Nhà Thông Minh </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="18">Thiết Bị Lưu Trữ, USB, Thẻ </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="23">Thiết Bị Mạng, Phần Mềm </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="455">Phụ Kiện Laptop, PC, Khác </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="899">Thiết Bị Di Động </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="165">Xả Kho Giá Sốc - Mua Hàng Sâu Hơn Giá Gốc 😭 </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="935">Gian Hàng Thanh Lý </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="951">USB Wifi Cho PC </a>
+
+                                        <a class="item" href="javascript:void(0)" data-value="952">SSD SamSung </a>
+
+                                    </div>
+                                </div>
+                                <!--select-->
+                                <div class="input-text"><input type="text" name="q" id="text-search" placeholder="Nhập tên sản phẩm, từ khóa cần tìm"
+                                        autocomplete="off" field_signature="1012080445"></div>
+                                <button type="submit" class="search-btn fa fa-search"></button>
+                            </form>
+                            <div class="autocomplete-suggestions list" id="js-seach-result" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        var instant_search_result_template = `<a href="{%=item.url%}"><img src="{%=item.image%}" alt=""><span class="info"><span class="name">{%=item.title%}</span><span class="price">{%=item.price%} đ</span></span></a>`;
+    </script>
+
+
+
+    <div class="body-new-2019">
+        <!--aaaaaaaaaaaaaa Array
+(
+)
+1-->
+
+
+
+        <div class="cate-top ">
+            <div class="container-2019 ">
+                <div class="breadcrumb mb-0 p-0">
+                    <ul class="list-unstyled m-0" itemscope itemtype="http://schema.org/BreadcrumbList">
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a href="/" itemprop="item">
+                                <span itemprop="name">Trang chủ</span>
+                            </a>
+                            <meta itemprop="position" content="1" />
+                        </li>
+
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a href="/cart" itemprop="item"><span><span itemprop="name">Giỏ hàng của bạn</span></span></a>
+                            <meta itemprop="position" content="2" />
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="container-2019 khaipv-container">
+                <div id="content">
+                    <form method="post" enctype="multipart/form-data" action="/send-cart" onsubmit="return check_field()" id="form-send-cart">
+
+                        <div class="new-cart-title">
+                            <h4>THÔNG TIN GIỎ HÀNG</h4>
+                        </div>
+
+                        <div class="khaipv-checkout-button-group">
+                            <div class="khaipv-checkout-button">
+                                <a href="/" class="tiep-tuc-mua-hang new-cart-continue-shopping-btn">Tiếp tục mua hàng</a>
+                            </div>
+                            <div class="khaipv-checkout-button">
+                                <span class="xoa-gio-hang new-cart-del-shopping-btn">Xóa giỏ hàng</span>
+                            </div>
+                        </div>
+                        <div class="new-cart">
+                            <div class="new-cart-items">
+
+
+
+
+
+                                <div class="new-cart-items-row js-item-row" data-variant_id="0" data-item_id="52020" data-item_type="product">
+                                    <div class="new-cart-items-img">
+                                        <a href="/laptop-lg-gram-15zd90n-v-ax56a5-i5-1035g7-8gb-ram-512gb-ssd-15-6-inch-fhd-fp-xam-bac-model-2020"><img
+                                                class="cart-product-img"
+                                                src="https://hanoicomputercdn.com/media/product/250_52020_15zd90n_v_ax56a5logo.png"></a>
+                                    </div>
+                                    <div class="new-cart-items-info">
+                                        <a href="/laptop-lg-gram-15zd90n-v-ax56a5-i5-1035g7-8gb-ram-512gb-ssd-15-6-inch-fhd-fp-xam-bac-model-2020"
+                                            class="new-cart-items-name">Laptop LG Gram 15ZD90N-V.AX56A5 (i5 1035G7/8GB RAM/512GBSSD/15.6 inch
+                                            FHD/FP/Trắng) (model 2020)
+
+                                        </a>
+                                        <div class="new-cart-items-desc">
+                                            <p class="m-0"> <b>Mã sản phẩm: </b>LTLG013</p>
+                                            <p class="m-0"> <b>Bảo hành: </b> 12 Tháng</p>
+
+
+                                            <div class="offer-incart">
+                                                <b class="red m-0">Khuyến mại:</b><br>
+
+                                                <span class="pre-line text-12">- <span
+                                                        style="color: red; font-weight: bold; text-transform: uppercase">BỘ QUÀ TẶNG TRỊ GIÁ <span
+                                                            style="color: red; font-weight: bold">1.400.000Đ</span></span>
+                                                    <br><span style="margin-left: 15px">+</span> Chuột không dây Logitech M185 trị giá <span
+                                                        style="color: red; font-weight: bold">249.000đ</span> (MELO055)
+                                                    <br><span style="margin-left: 15px">+</span> Tấm lót chuột trị giá <span
+                                                        style="color: red; font-weight: bold">49.000đ</span> (PADM639)
+                                                    <br><span style="margin-left: 15px">+</span> Bộ vệ sinh laptop trị giá <span
+                                                        style="color: red; font-weight: bold">39.000đ</span> (NUOC002)
+                                                    <br><span style="margin-left: 15px">+</span> Túi chống sốc trị giá <span
+                                                        style="color: red; font-weight: bold">79.000đ</span> (TUID209)
+                                                    <br><span style="margin-left: 15px">+</span> Giá khuyến mại là giá đã giảm <span
+                                                        style="color: red; font-weight: bold">1.500.000đ</span> CT hoàn tiền của LG.</span><br>
+
+
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="new-cart-items-checkout d-flex">
+                                        <input type="hidden" class="bulk_price_config" value='<br />
+<b>Notice</b>:  Undefined index: bulk_price in <b>/var/www/html/hanoicomputer.vn/public_html/cache/template/shopping_cart_new.ad126319f3b44d5ea27c527d53a852d0.php</b> on line <b>142</b><br />
+null'>
+                                        <input type="hidden" class="buy-price" value="29989000">
+
+                                        <span class="new-cart-items-price js-show-buy-price"><span>29.989.000</span> <u>đ</u> </span>
+
+                                        <span class="new-cart-quantity">
+                                            <a href="javascript:void(0);" class="minor quantity-change" data-value="-1" title="tru">-</a>
+                                            <input class="buy-quantity quantity-change" value='1' size='5' />
+                                            <a href="javascript:void(0);" class="add quantity-change" data-value="1" title="them">+</a>
+                                        </span>
+                                        <b style="display:none;" class="total-item-price"> 29.989.000 </b>
+                                        <div class="new-cart-items-del">
+                                            <a href="javascript:void(0)" class="delete-from-cart red"><i class="far fa-trash-alt"
+                                                    style="color: #d00"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="total-cart">
+                                    Tổng tiền đơn hàng :
+                                    <strong><span id="total_value" class="total-cart-price" style="color: #d00"></span></strong>
+                                </div>
+                                <div class="has-new-kmai">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end new cart -->
+                        <div class="new-cart-bottom">
+                            <div class="c3_col_1">
+                                <div class="c3_box user_info">
+                                    <div class="title_box_cart"> Thông tin khách hàng</div>
+                                    <div class="user_info-item"><span class="txt2">Họ tên*</span>
+                                        <input type="text" name="user_info[name]" id="buyer_name" value="" />
+                                    </div>
+                                    <div class="user_info-item"><span class="txt2">Email*</span>
+                                        <input type="text" name="user_info[email]" id="buyer_email" value='' />
+                                    </div>
+
+                                    <div class="user_info-item"> <span class="txt2">Số điện thoại*</span>
+                                        <input type="text" name="user_info[tel]" id="buyer_mobile" value='' />
+                                        <input type="hidden" name="user_info[mobile]" value='' />
+                                    </div>
+
+                                    <div class="item-form d- user_info-item user_province">
+                                        <span class="txt2">Tỉnh/Thành phố</span>
+                                        <span class="custom-province">
+                                            <select name="user_info[province]" class="" id="buyer_province" onchange="getDistrict(this.value)">
+                                                <option value="0">--Lựa chọn--</option>
+
+                                                <option value="1">Hà Nội</option>
+
+                                                <option value="2">TP HCM</option>
+
+                                                <option value="5">Hải Phòng</option>
+
+                                                <option value="4">Đà Nẵng</option>
+
+                                                <option value="6">An Giang</option>
+
+                                                <option value="7">Bà Rịa-Vũng Tàu</option>
+
+                                                <option value="13">Bình Dương</option>
+
+                                                <option value="15">Bình Phước</option>
+
+                                                <option value="16">Bình Thuận</option>
+
+                                                <option value="14">Bình Định</option>
+
+                                                <option value="8">Bạc Liêu</option>
+
+                                                <option value="10">Bắc Giang</option>
+
+                                                <option value="9">Bắc Kạn</option>
+
+                                                <option value="11">Bắc Ninh</option>
+
+                                                <option value="12">Bến Tre</option>
+
+                                                <option value="18">Cao Bằng</option>
+
+                                                <option value="17">Cà Mau</option>
+
+                                                <option value="3">Cần Thơ</option>
+
+                                                <option value="24">Gia Lai</option>
+
+                                                <option value="25">Hà Giang</option>
+
+                                                <option value="26">Hà Nam</option>
+
+                                                <option value="27">Hà Tĩnh</option>
+
+                                                <option value="30">Hòa Bình</option>
+
+                                                <option value="28">Hải Dương</option>
+
+                                                <option value="29">Hậu Giang</option>
+
+                                                <option value="31">Hưng Yên</option>
+
+                                                <option value="32">Khánh Hòa</option>
+
+                                                <option value="33">Kiên Giang</option>
+
+                                                <option value="34">Kon Tum</option>
+
+                                                <option value="35">Lai Châu</option>
+
+                                                <option value="38">Lào Cai</option>
+
+                                                <option value="36">Lâm Đồng</option>
+
+                                                <option value="37">Lạng Sơn</option>
+
+                                                <option value="39">Long An</option>
+
+                                                <option value="40">Nam Định</option>
+
+                                                <option value="41">Nghệ An</option>
+
+                                                <option value="42">Ninh Bình</option>
+
+                                                <option value="43">Ninh Thuận</option>
+
+                                                <option value="44">Phú Thọ</option>
+
+                                                <option value="45">Phú Yên</option>
+
+                                                <option value="46">Quảng Bình</option>
+
+                                                <option value="47">Quảng Nam</option>
+
+                                                <option value="48">Quảng Ngãi</option>
+
+                                                <option value="49">Quảng Ninh</option>
+
+                                                <option value="50">Quảng Trị</option>
+
+                                                <option value="51">Sóc Trăng</option>
+
+                                                <option value="52">Sơn La</option>
+
+                                                <option value="53">Tây Ninh</option>
+
+                                                <option value="56">Thanh Hóa</option>
+
+                                                <option value="54">Thái Bình</option>
+
+                                                <option value="55">Thái Nguyên</option>
+
+                                                <option value="57">Thừa Thiên-Huế</option>
+
+                                                <option value="58">Tiền Giang</option>
+
+                                                <option value="59">Trà Vinh</option>
+
+                                                <option value="60">Tuyên Quang</option>
+
+                                                <option value="61">Vĩnh Long</option>
+
+                                                <option value="62">Vĩnh Phúc</option>
+
+                                                <option value="63">Yên Bái</option>
+
+                                                <option value="19">Đắk Lắk</option>
+
+                                                <option value="22">Đồng Nai</option>
+
+                                                <option value="23">Đồng Tháp</option>
+
+                                                <option value="21">Điện Biên</option>
+
+                                                <option value="20">Đăk Nông</option>
+
+                                            </select>
+                                        </span>
+
+
+                                    </div>
+                                    <div id="district-holder-login" class="item-form user_info-item">
+                                    </div>
+
+
+                                    <div class="user_info-item"> <span class="txt2">Địa chỉ*</span>
+                                        <textarea id="buyer_address" name="user_info[address]"></textarea>
+                                    </div>
+                                    <div class="user_info-item"><span class="">Ghi chú</span>
+                                        <textarea name="user_info[note]" id="buyer_note" style="height:100px"></textarea>
+                                    </div>
+                                    <label class="active">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="chkTaxInvoice" name="chkTaxInvoice"><span class="icon"></span> Xuất hóa đơn
+                                            công ty
+                                        </div>
+                                    </label>
+                                    <div id="ajxTaxInvoice" style="margin-bottom:20px;display: none">
+                                        <div style="width: 100%; margin-top: 10px; padding: 0px;" id="pnlTaxInvoice">
+                                            <div class="user_info-item"> <span class="txt2">Công ty/Tổ chức:</span>
+                                                <textarea id="txtTaxName" name="user_info[tax_company]"></textarea>
+                                            </div>
+                                            <div class="user_info-item"> <span class="txt2">Địa chỉ*:</span>
+                                                <textarea id="txtTaxAddress" name="user_info[tax_address]"></textarea>
+                                            </div>
+                                            <div class="user_info-item"> <span class="txt2">Mã số thuế:</span>
+                                                <textarea id="txtTaxCode" name="user_info[tax_code]"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+
+                            <div class="c3_col_1">
+                                <div class="c3_box">
+                                    <div class="title_box_cart">Hình thức thanh toán</div>
+                                    <table class="tbl_pay" style="font-size: 13px;">
+
+                                        <!-- aaaaaaaaaaaa Array
+(
+    [id] => 2
+    [title] => Thanh toán tiền mặt khi nhận hàng (tiền mặt / quẹt thẻ ATM, Visa, Master)
+    [detail] => Quý khách hàng có thể thanh toán bằng tiền mặt hoặc quẹt thẻ sau khi nhận được đầy đủ hàng hóa và đáp ứng chất lượng
+)
+1 -->
+
+
+                                        <tr>
+                                            <td valign="top"><input type="radio" id="pay_method_2" name='pay_method' value="2" class="pay_option"
+                                                    checked /></td>
+                                            <td valign="top">
+                                                <div class="txt0"><label for="pay_method_2">Thanh toán tiền mặt khi nhận hàng (tiền mặt / quẹt thẻ
+                                                        ATM, Visa, Master)</label></div>
+
+                                                <div class="pay_content" style="display:none;">
+                                                    Quý khách hàng có thể thanh toán bằng tiền mặt hoặc quẹt thẻ sau khi nhận được đầy đủ hàng hóa và
+                                                    đáp ứng chất lượng
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+
+
+                                        <!-- aaaaaaaaaaaa Array
+(
+    [id] => 8
+    [title] => Thanh toán qua chuyển khoản qua tài khoản ngân hàng (khuyên dùng)
+    [detail] => <b style="color:red">Quý khách chuyển tiền cho chúng tôi vào một trong các tài khoản sau đây:</b>
+<hr />
+<b>1. Ngân hàng TMCP Ngoại Thương Việt Nam- Chi nhánh Tây Hồ (Vietcombank)</b>
+-  Tên tài khoản: Công ty cổ phần máy tính Hà Nội
+-  Số tài khoản VND: 0991.000.000.930
+<hr />
+<b>2. Ngân hàng Nông nghiệp và phát triển Nông thôn Việt Nam- Chi nhánh Hà Nội (
+Agribank)</b>
+- Tên tài khoản: Công ty cổ phần máy tính Hà Nội
+- Số tài khoản VND: 1500.201.082.444
+<hr />
+<b>3. Ngân hàng TMCP Kỹ Thương Việt Nam – Trung tâm giao dịch Hội sở (Techcombank)</b>
+- Tên tài khoản: Công ty cổ phần máy tính Hà Nội
+- Số TK VND: 108.2361.0928.999
+<hr />
+<b>4. Ngân hàng TMCP Đầu tư và phát triển Việt Nam- Chi nhánh Cầu Giấy (BIDV)</b>
+- Tên TK: Công ty cổ phần máy tính Hà Nội
+- Số TK: 2151.000.1289.241
+<hr />
+<b>5. Ngân hàng TMCP Á Châu- Chi nhánh Hà Nội (ACB)</b>
+- Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+- Số TK: 174420119
+<hr />
+<b>6. Ngân hàng TNHH MTV Standard Chartered Việt Nam </b>
+- Tên Tài khoản:  Công ty cổ phần máy tính Hà Nội
+- Số Tài khoản VND:  88140711268
+<hr />
+<b>7. Ngân hàng TMCP Tiên Phong- PGD Nam Hà Nội</b>
+- Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+- Số TK VND: 00118668001
+<hr />
+<b>8. Ngân hàng Quân Đội - Chi nhánh Định Công</b>
+- Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+- Số TK VND: 0631100948001
+<hr />
+<b>9. Ngân hàng TMCP Công Thương Việt Nam</b>
+- Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+- Số TK VND: 112005156688
+<hr />
+
+)
+1 -->
+
+
+                                        <tr>
+                                            <td valign="top"><input type="radio" id="pay_method_8" name='pay_method' value="8" class="pay_option" />
+                                            </td>
+                                            <td valign="top">
+                                                <div class="txt0"><label for="pay_method_8">Thanh toán qua chuyển khoản qua tài khoản ngân hàng
+                                                        (khuyên dùng)</label></div>
+
+                                                <div class="pay_content" style="display:none;">
+                                                    <b style="color:red">Quý khách chuyển tiền cho chúng tôi vào một trong các tài khoản sau đây:</b>
+                                                    <hr />
+                                                    <b>1. Ngân hàng TMCP Ngoại Thương Việt Nam- Chi nhánh Tây Hồ (Vietcombank)</b>
+                                                    - Tên tài khoản: Công ty cổ phần máy tính Hà Nội
+                                                    - Số tài khoản VND: 0991.000.000.930
+                                                    <hr />
+                                                    <b>2. Ngân hàng Nông nghiệp và phát triển Nông thôn Việt Nam- Chi nhánh Hà Nội (
+                                                        Agribank)</b>
+                                                    - Tên tài khoản: Công ty cổ phần máy tính Hà Nội
+                                                    - Số tài khoản VND: 1500.201.082.444
+                                                    <hr />
+                                                    <b>3. Ngân hàng TMCP Kỹ Thương Việt Nam – Trung tâm giao dịch Hội sở (Techcombank)</b>
+                                                    - Tên tài khoản: Công ty cổ phần máy tính Hà Nội
+                                                    - Số TK VND: 108.2361.0928.999
+                                                    <hr />
+                                                    <b>4. Ngân hàng TMCP Đầu tư và phát triển Việt Nam- Chi nhánh Cầu Giấy (BIDV)</b>
+                                                    - Tên TK: Công ty cổ phần máy tính Hà Nội
+                                                    - Số TK: 2151.000.1289.241
+                                                    <hr />
+                                                    <b>5. Ngân hàng TMCP Á Châu- Chi nhánh Hà Nội (ACB)</b>
+                                                    - Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+                                                    - Số TK: 174420119
+                                                    <hr />
+                                                    <b>6. Ngân hàng TNHH MTV Standard Chartered Việt Nam </b>
+                                                    - Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+                                                    - Số Tài khoản VND: 88140711268
+                                                    <hr />
+                                                    <b>7. Ngân hàng TMCP Tiên Phong- PGD Nam Hà Nội</b>
+                                                    - Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+                                                    - Số TK VND: 00118668001
+                                                    <hr />
+                                                    <b>8. Ngân hàng Quân Đội - Chi nhánh Định Công</b>
+                                                    - Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+                                                    - Số TK VND: 0631100948001
+                                                    <hr />
+                                                    <b>9. Ngân hàng TMCP Công Thương Việt Nam</b>
+                                                    - Tên Tài khoản: Công ty cổ phần máy tính Hà Nội
+                                                    - Số TK VND: 112005156688
+                                                    <hr />
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+
+
+                                        <!-- aaaaaaaaaaaa Array
+(
+    [id] => 4
+    [title] => Thanh toán qua Ngân Lượng (ATM nội địa, Visa, Master)
+    [detail] => 
+)
+1 -->
+
+
+                                        <tr>
+                                            <td valign="top"><input type="radio" id="pay_method_4" name='pay_method' value="4" class="pay_option" />
+                                            </td>
+                                            <td valign="top">
+                                                <div class="txt0"><label for="pay_method_4">Thanh toán qua Ngân Lượng (ATM nội địa, Visa,
+                                                        Master)</label></div>
+
+                                                <div class="pay_content" style="display:none;">
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+
+
+                                        <!-- aaaaaaaaaaaa Array
+(
+    [id] => 12
+    [title] => Thanh toán qua ZaloPay (ví ZaloPay, thẻ ATM, Visa, Master)
+    [detail] => 
+)
+1 -->
+
+
+                                        <!-- aaaaaaaaaaaa Array
+(
+    [id] => 10
+    [title] => Trả góp qua Alepay (Ngân Lượng)
+    [detail] => 
+)
+1 -->
+
+
+                                        <tr>
+                                            <td valign="top"><input type="radio" id="pay_method_10" name='pay_method' value="10" class="pay_option" />
+                                            </td>
+                                            <td valign="top">
+                                                <div class="txt0"><label for="pay_method_10">Trả góp qua Alepay (Ngân Lượng)</label></div>
+
+                                                <div class="pay_content" style="display:none;">
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+
+
+                                        <!-- aaaaaaaaaaaa Array
+(
+    [id] => 11
+    [title] => Thanh toán trực tuyến (Bằng thẻ ATM/Visa/Master qua cổng VnPay)
+    [detail] => 
+)
+1 -->
+
+
+
+
+                                    </table>
+                                </div>
+                                <!--c3_box-->
+                                <!-- <div class="c3_box">
+                  <div class="title_box_cart">Hình thức vận chuyển</div>
+                  <div>
+                    <table class="tbl_ship">
+                      
+                      <tr>
+                        <td valign="top"><input type="radio" name='ship_method' value="1"  class="ship_option" /></td>
+                        <td valign="top"><div class="txt0">Vận chuyển tính phí theo thỏa thuận</div>
+                        <div class='ship_content' style="display:none;">Hình thức Vận chuyển tính phí theo thỏa thuận khi đơn hàng có bán kính > 20Km. Quý khách vui lòng thỏa thuận giá vận chuyển với nhân viên tư vấn bán hàng</div></td>
+                      </tr>
+                      
+                      <tr>
+                        <td valign="top"><input type="radio" name='ship_method' value="2"  class="ship_option" /></td>
+                        <td valign="top"><div class="txt0">Miễn phí trong nội thành Hà Nội</div>
+                        <div class='ship_content' style="display:none;">Hình thức vận chuyển miễn phí trong nội thành Hà Nội</div></td>
+                      </tr>
+                      
+                      <tr>
+                        <td valign="top"><input type="radio" name='ship_method' value="3"  class="ship_option" /></td>
+                        <td valign="top"><div class="txt0">Miễn phí trong 35 KM</div>
+                        <div class='ship_content' style="display:none;">Hình thức vận chuyển miễn phí trong bán kính 35 km tính từ Công ty.</div></td>
+                      </tr>
+                      
+                    </table>
+                  </div>
+                  <div class="clear"></div>-->
+                            </div>
+                            <!--c3_box-->
+                            <div class="c3_col_1">
+                                <div class="c3_box">
+                                    <div class="tbl_cart3">
+                                        <table style="width: 100%;background: #f6f6f6;padding: 10px 5px;">
+                                            <tr>
+                                                <td class="txt2"><b>Mã giảm giá/ quà tặng</b></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr class="txt_16">
+                                                <td colspan="2">
+                                                    <div class="voucher">
+                                                        <div style="display: flex;align-items: center;">
+                                                            <input type="text" placeholder="Nhập mã giảm giá" class="txt" id="discount_code"
+                                                                name="coupon_code" value=" ">
+
+                                                            <a href="javascript:void(0);" class="button button-check-discount js-apply-discount-code"
+                                                                style="">Áp dụng</a>
+                                                        </div>
+
+
+
+                                                        <span id="js-voucher-message"
+                                                            style="margin: 5px 0px; display: block; color:#f00; font-size:13px;"></span>
+                                                        <div class="clear"></div>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="txt_16">
+                                                <td class="txt2">
+                                                    <b>Tổng tiền</b>
+                                                </td>
+                                                <td class="txt2 text-right">
+                                                    <strong class="total-cart-price"> <u>đ</u></strong>
+                                                </td>
+                                            </tr>
+                                            <tr class="txt_16">
+                                                <td class="txt2">
+                                                    <b>Thành tiền</b>
+                                                </td>
+                                                <td class="txt2 text-right">
+                                                    <strong class="red total-cart-payment"> <u>đ</u></strong><br />
+                                                    <span class="txt_12">(Giá chưa bao gồm VAT)</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="clear space2"></div>
+                                        <div style="" class="new-cart-button">
+
+                                            <a href="javascript:;" class="button js-check-sendcart button-100 bg-red ">
+                                                Đặt hàng
+                                            </a>
+
+                                            <a class="button button-100 bg-green" href="/cart?show=tragop&type=cart">Mua trả góp</a>
+                                            <a class="button button-100 bg-yellow" href="/">Chọn thêm sản phẩm</a>
+                                            <a href="javascript:void(0)" onclick="downloadCartImage()" rel="nofollow"
+                                                class="button button-100 bg-blue">Tải ảnh báo giá</a>
+                                            <a href="/ajax/export_download.php?file_type=xls&content_type=shopping-cart-new" rel="nofollow"
+                                                class="button button-50 bg-blue">Tải file excel</a>
+                                            <a href="/print/user.php?view=cart-new" rel="nofollow" class="button button-50 bg-blue"
+                                                style="    margin-right: 0; width: 50%;">In báo giá</a>
+
+                                            <input type="hidden" name="send_order" value="yes" />
+                                            <input type="hidden" id="js-total-before-fee-discount" value="">
+                                            <input type="hidden" id="js-discount-voucher" value="0">
+                                            <input type="hidden" name="coupon_code" value="" id="js_coupon_code">
+                                            <input type="hidden" id="js-discount-membership" value="0">
+                                            <input type="hidden" name="shipping_fee" id="js-fee-shipping" value="0">
+                                            <input type="hidden" name="cod_fee" id="js-fee-cod" value="0">
+                                            <input type="hidden" name="pay-online-fee" id="js-payonline-fee" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="clearfix space2"></div>
+
+        <div class="khaipv-footer-newsletter">
+            <p class="footer-newsletter-title">ĐĂNG KÝ NHẬN EMAIL THÔNG BÁO KHUYẾN MẠI HOẶC ĐỂ ĐƯỢC TƯ VẤN MIỄN PHÍ</p>
+            <div class="footer-newsletter-form">
+                <input type="text" name="" id="email_newsletter" placeholder="Nhập email hoặc số điện thoại của bạn">
+                <a href="javascript:subscribe_newsletter()" class="footer-subscribe-button">Gửi</a>
+            </div>
+        </div>
+
+        <div id="footer_bottom-2019" class="khaipv-footer-srbg" style="border-top: 1px solid #dadada; padding-bottom: 20px;">
+            <div class="container-2019">
+                <span class="footer-bottom-title-2019"> HỆ THỐNG CÁC SHOWROOM CỦA HANOICOMPUTER</span>
+                <div id="footer_he_thong_showroom">
+                    <div class="footer_he_thong_showroom-container">
+                        <div class="footer_he_thong_showroom-row">
+                            <div class="showroom-container">
+                                <p><span class="showroom-table-title">HANOICOMPUTER - HAI BÀ TRƯNG</span></p>
+                                <p><span class="showroom-table-address"><i class="far fa-map-marker-alt"></i> Số 129+131 Lê
+                                        Thanh Nghị - Hai Bà Trưng - Hà Nội</span>
+                                </p>
+                                <p><span class="showroom-table-phone"><i class="far fa-phone fa-flip-horizontal"></i> Tel: 1900
+                                        1903 (máy lẻ 101)</span></p>
+                                <p><span class="showroom-table-warranty"><i class="far fa-phone fa-flip-horizontal"></i> Bảo
+                                        hành: 1900 1903 (máy lẻ 108)</span></p>
+                                <p><span class="showroom-table-email"><i class="far fa-envelope"></i> Email:
+                                        kinhdoanh.haibatrung@hanoicomputer.com</span></p>
+                                <p><span class="showroom-table-opening-time"><i class="far fa-clock"></i> Thời gian mở cửa: Từ
+                                        9h-20h hàng ngày</span></p>
+                            </div>
+                            <div class="showroom-container">
+                                <p><span class="showroom-table-title">HANOICOMPUTER - ĐỐNG ĐA</span></p>
+                                <p><span class="showroom-table-address"><i class="far fa-map-marker-alt"></i> Số 43 Thái Hà -
+                                        Đống Đa - Hà Nội</span>
+                                </p>
+                                <p><span class="showroom-table-phone"><i class="far fa-phone fa-flip-horizontal"></i> Tel: 1900
+                                        1903 (máy lẻ 202) - (0243) 5380088</span></p>
+                                <p><span class="showroom-table-warranty"><i class="far fa-phone fa-flip-horizontal"></i> Bảo
+                                        hành: 1900 1903 (máy lẻ 203)</span></p>
+                                <p><span class="showroom-table-email"><i class="far fa-envelope"></i> Email:
+                                        kinhdoanh.dongda@hanoicomputer.com</span></p>
+                                <p><span class="showroom-table-opening-time"><i class="far fa-clock"></i> Thời gian mở cửa: Từ
+                                        9h-21h30 hàng ngày</span></p>
+                            </div>
+                            <div class="showroom-container">
+                                <p><span class="showroom-table-title">HANOICOMPUTER - CẦU GIẤY</span></p>
+                                <p><span class="showroom-table-address"><i class="far fa-map-marker-alt"></i> Số 57 Nguyễn Văn
+                                        Huyên - Cầu Giấy - Hà Nội</span>
+                                </p>
+                                <p><span class="showroom-table-phone"><i class="far fa-phone fa-flip-horizontal"></i> Tel: 1900
+                                        1903 (máy lẻ 503) - (024) 38610088</span></p>
+                                <p><span class="showroom-table-warranty"><i class="far fa-phone fa-flip-horizontal"></i> Bảo
+                                        hành: 1900 1903 (máy lẻ 204)</span></p>
+                                <p><span class="showroom-table-email"><i class="far fa-envelope"></i> Email:
+                                        kinhdoanh.caugiay@hanoicomputer.com</span></p>
+                                <p><span class="showroom-table-opening-time"><i class="far fa-clock"></i> Thời gian mở cửa: Từ
+                                        9h-20h hàng ngày</span></p>
+                            </div>
+                            <div class="showroom-container">
+                                <p><span class="showroom-table-title">HANOICOMPUTER - HẢI PHÒNG</span></p>
+                                <p><span class="showroom-table-address"><i class="far fa-map-marker-alt"></i> A1-6 Lô 8A - Lê
+                                        Hồng Phong - Ngô Quyền - Hải Phòng</span>
+                                </p>
+                                <p><span class="showroom-table-phone"><i class="far fa-phone fa-flip-horizontal"></i> Tel: 1900
+                                        1903 (máy lẻ 301) - (022) 58830013</span></p>
+                                <p><span class="showroom-table-warranty"><i class="far fa-phone fa-flip-horizontal"></i> Bảo
+                                        hành: 1900 1903 (máy lẻ 300)</span></p>
+                                <p><span class="showroom-table-email"><i class="far fa-envelope"></i> Email:
+                                        kinhdoanh.haiphong@hanoicomputer.com</span></p>
+                                <p><span class="showroom-table-opening-time"><i class="far fa-clock"></i> Thời gian mở cửa: Từ
+                                        8h-20h hàng ngày</span></p>
+                            </div>
+                            <div class="showroom-container">
+                                <p><span class="showroom-table-title">HANOICOMPUTER - HÀ ĐÔNG</span></p>
+                                <p><span class="showroom-table-address"><i class="far fa-map-marker-alt"></i> Số 511+513 Quang
+                                        Trung - Hà Đông - Hà Nội</span>
+                                </p>
+                                <p><span class="showroom-table-phone"><i class="far fa-phone fa-flip-horizontal"></i> Tel: 1900
+                                        1903 (máy lẻ 600) - (024) 38580088</span></p>
+                                <p><span class="showroom-table-warranty"><i class="far fa-phone fa-flip-horizontal"></i> Bảo
+                                        hành: 1900 1903 (máy lẻ 603)</span></p>
+                                <p><span class="showroom-table-email"><i class="far fa-envelope"></i> Email:
+                                        kinhdoanh.hadong@hanoicomputer.com</span></p>
+                                <p><span class="showroom-table-opening-time"><i class="far fa-clock"></i> Thời gian mở cửa: Từ
+                                        9h-20h hàng ngày</span></p>
+                            </div>
+                            <div class="showroom-container">
+                                <p><span class="showroom-table-title">HANOICOMPUTER - TP. HỒ CHÍ MINH</span></p>
+                                <p><span class="showroom-table-address"><i class="far fa-map-marker-alt"></i> Số 520 Cách Mạng
+                                        Tháng Tám - Quận 3 - TP. Hồ Chí Minh</span>
+                                </p>
+                                <p><span class="showroom-table-phone"><i class="far fa-phone fa-flip-horizontal"></i> Tel: 1900
+                                        1903 (máy lẻ 710) - (028) 73078877</span></p>
+                                <p><span class="showroom-table-warranty"><i class="far fa-phone fa-flip-horizontal"></i> Bảo
+                                        hành: 1900 1903 (máy lẻ 703)</span></p>
+                                <p><span class="showroom-table-email"><i class="far fa-envelope"></i> Email:
+                                        kinhdoanh.hcm@hanoicomputer.com</span></p>
+                                <p><span class="showroom-table-opening-time"><i class="far fa-clock"></i> Thời gian mở cửa: Từ
+                                        8h30-20h30 hàng ngày</span></p>
+                            </div>
+                            <div class="showroom-container">
+                                <p><span class="showroom-table-title">HANOICOMPUTER - LONG BIÊN</span></p>
+                                <p><span class="showroom-table-address"><i class="far fa-map-marker-alt"></i> Số 398 Nguyễn Văn
+                                        Cừ - Long Biên - Hà Nội</span>
+                                </p>
+                                <p><span class="showroom-table-phone"><i class="far fa-phone fa-flip-horizontal"></i> Tel:
+                                        19001903 (máy lẻ 808) - (024) 73088877</span></p>
+                                <p><span class="showroom-table-warranty"><i class="far fa-phone fa-flip-horizontal"></i> Bảo
+                                        hành: 1900 1903 (máy lẻ 816)</span></p>
+                                <p><span class="showroom-table-email"><i class="far fa-envelope"></i> Email:
+                                        kinhdoanh.longbien@hanoicomputer.com</span></p>
+                                <p><span class="showroom-table-opening-time"><i class="far fa-clock"></i> Thời gian mở cửa: Từ
+                                        9h-20h hàng ngày</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="background: #fbfbfb; border-top: 1px solid #dadada">
+            <div class="container-2019">
+                <div class="khaipv-footer-policies">
+                    <div class="policy-container">
+                        <div class="policy-icon"><i class="fal fa-shipping-fast"></i></div>
+                        <div class="policy-info">
+                            <span class="policy-info-title">CHÍNH SÁCH GIAO HÀNG</span>
+                            <span class="policy-info-content">Nhận hàng và thanh toán tại nhà</span>
+                        </div>
+                    </div>
+                    <div class="policy-container">
+                        <div class="policy-icon"><i class="fal fa-sync"></i></div>
+                        <div class="policy-info">
+                            <span class="policy-info-title">ĐỔI TRẢ DỄ DÀNG</span>
+                            <span class="policy-info-content">Dùng thử trong vòng 3 ngày</span>
+                        </div>
+                    </div>
+                    <div class="policy-container">
+                        <div class="policy-icon"><i class="fal fa-credit-card"></i></div>
+                        <div class="policy-info">
+                            <span class="policy-info-title">THANH TOÁN TIỆN LỢI</span>
+                            <span class="policy-info-content">Trả tiền mặt, CK, trả góp 0%</span>
+                        </div>
+                    </div>
+                    <div class="policy-container">
+                        <div class="policy-icon"><i class="fal fa-comments"></i></div>
+                        <div class="policy-info">
+                            <span class="policy-info-title">HỖ TRỢ NHIỆT TÌNH</span>
+                            <span class="policy-info-content">Tư vấn, giải đáp mọi thắc mắc</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #fbfbfb; border-top: 1px dashed #dadada;">
+            <div class="container-2019">
+                <div class="khaipv-footer-links">
+                    <div class="links-group-container">
+                        <span class="links-group-title">GIỚI THIỆU HANOICOMPUTER</span>
+                        <p><a href="https://www.hanoicomputer.vn/gioi-thieu-ve-hanoicomputer">Giới thiệu công ty</a></p>
+                        <p><a href="https://www.hanoicomputer.vn/thong-tin-lien-he" target="_blank">Thông tin liên hệ</a></p>
+                        <p><a href="https://thongtin.hanoicomputer.vn/tuyen-dung/" target="_blank">Thông tin tuyển dụng</a></p>
+                        <p><a href="https://news.hanoicomputer.vn/" target="_blank">Tin tức</a></p>
+                        <span class="footer-social-icons">
+                            <a href="https://www.facebook.com/www.hanoicomputer.vn/" target="_blank"><i class="icons fab fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/channel/UCIoWNINN5sJcx1zboLXZmeA" target="_blank"><i
+                                    class="icons fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/hanoicomputer.vn/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </span>
+                    </div>
+                    <div class="links-group-container">
+                        <span class="links-group-title">HỖ TRỢ KHÁCH HÀNG</span>
+                        <p><a href="https://hanoicomputer.vn/huong-dan-mua-hang-truc-tuyen">Hướng dẫn mua hàng trực
+                                tuyến</a></p>
+                        <p><a href="https://hanoicomputer.vn/huong-dan-thanh-toan">Hướng dẫn thanh toán</a></p>
+                        <p><a href="https://hanoicomputer.vn/huong-dan-mua-hang-tra-gop">Hướng dẫn mua hàng trả
+                                góp</a></p>
+                        <p><a href="https://hanoicomputer.vn/huong-dan-tra-cuu-va-nhan-hoa-don-dien-tu">In hóa đơn
+                                điện tử</a></p>
+                        <p><a href="https://www.hanoicomputer.vn/yeu-cau-bao-hanh">Gửi yêu cầu bảo hành</a></p>
+                        <p><a href="https://www.hanoicomputer.vn/lien-he">Thắc mắc, góp ý</a></p>
+                        <p><a class="template-switch" href="https://www.hanoicomputer.vn/?show_version=mobile">Xem giao diện bản mobile</a></p>
+                    </div>
+                    <div class="links-group-container">
+                        <span class="links-group-title">CHÍNH SÁCH CHUNG</span>
+                        <p><a href="https://hanoicomputer.vn/chinh-sach">Chính sách, quy định chung</a></p>
+                        <p><a href="https://www.hanoicomputer.vn/chinh-sach-giao-hang">Chính sách vận
+                                chuyển</a></p>
+                        <p><a href="https://hanoicomputer.vn/chinh-sach-bao-hanh">Chính sách bảo hành</a>
+                        </p>
+                        <p><a href="https://www.hanoicomputer.vn/doi-tra-va-hoan-tien">Chính sách đổi trả và hoàn tiền</a></p>
+                        <!--<p><a href="https://hanoicomputer.vn/chinh-sach-hoan-tien">Chính sách hoàn tiền</a>
+                </p> -->
+                        <p><a href="https://hanoicomputer.vn/chinh-sach-cho-doanh-nghiep">Chính sách cho
+                                doanh nghiệp</a></p>
+                        <!-- <p><a href="https://hanoicomputer.vn/chinh-sach-gia-san-pham">Chính sách giá sản
+                        phẩm</a></p> -->
+                        <p><a href="https://hanoicomputer.vn/chinh-sach-hang-chinh-hang">Chính sách hàng
+                                chính hãng</a></p>
+                        <!--<p><a href="https://hanoicomputer.vn/chinh-sach-gamenet">Chính sách GameNet</a></p>-->
+                        <p><a href="https://hanoicomputer.vn/bao-mat-thong-tin-khach-hang">Bảo mật thông
+                                tin khách hàng</a></p>
+                    </div>
+                    <div class="links-group-container">
+                        <span class="links-group-title">THÔNG TIN KHUYẾN MẠI</span>
+                        <p><a href="https://www.hanoicomputer.vn/tin-khuyen-mai-su-kien" target="_blank">Thông tin khuyến mại</a></p>
+                        <p><a href="https://www.hanoicomputer.vn/chuong-trinh-khuyen-mai" target="_blank">Sản phẩm khuyến mại</a></p>
+                        <p><a href="https://www.hanoicomputer.vn/san-pham-ban-chay">Sản phẩm bán chạy</a></p>
+                        <p><a href="https://www.hanoicomputer.vn/san-pham-moi">Sản phẩm mới</a></p>
+                        <p><a href="http://www.online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=5024" target="_blank"><img
+                                    src="/template/may2020/images/blank.gif" data-src="/media/lib/dathongbao.png" alt="Đăng ký bộ công thương"
+                                    class="lazy" style="margin-top: -7px; margin-left: -7px;" /></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #202c43">
+            <div class="container-2019">
+                <div class="khaipv-copyright">
+                    <p>© 2020 Công Ty Cổ Phần Máy Tính Hà Nội</p>
+                    <p>Địa chỉ: Số 129 + 131, phố Lê Thanh Nghị, Phường Đồng Tâm, Quận Hai Bà Trưng, Hà Nội</p>
+                    <p>GPĐKKD số 0101161194 do Sở KHĐT Tp.Hà Nội cấp ngày 31/8/2001</p>
+                    <p>Email: hnc@hanoicomputer.com. Điện thoại: 1900 1903</p>
+                    <!--<p><a href="?show_version=mobile" rel="nofollow"> <b>Chuyển sang phiên bản dành cho Mobile</b></a></p>-->
+                </div>
+            </div>
+        </div>
+
+        <!--File: dong_bo_kho_hang : Chưa có file giao diện này. Nhấn lưu lại để tạo-->
+
+
+        <!---//script hien thi tat ca cac trang-->
+        <script src="https://hanoicomputercdn.com/javascript/dist/vendors.js?v=1"> </script>
+        <script src="https://hanoicomputercdn.com/javascript/dist/hurasoft.js?v=1"> </script>
+        <script src="https://hanoicomputercdn.com/javascript/dist/hurastore.js?v=3"> </script>
+
+
+        <link href="https://hanoicomputercdn.com/template/may2020/script/owlcarousel.css?v=343.34444444" rel="stylesheet" type="text/css" />
+        <link href="https://hanoicomputercdn.com/template/may2020/script/owl.theme.default.min.css?v=5" rel="stylesheet" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+
+        <script src="https://hanoicomputercdn.com/template/may2020/script/lazyload.js?v=1"></script>
+        <script src="https://hanoicomputercdn.com/includes/js/base64.js?v=1"></script>
+        <script src="https://hanoicomputercdn.com/includes/js/common.js?v=1"></script>
+
+        <script src="https://hanoicomputercdn.com/template/may2020/script/common.js?v=5"></script>
+        <script src="https://hanoicomputercdn.com/template/may2020/script/webworker.js?v=2"></script>
+        <script src="https://hanoicomputercdn.com/template/may2020/script/hnc_custom.js?v=1.0.30"></script>
+        <script>
+            // convert url in plain text to a link
+            function urlify(text) {
+                if (text == 'undefined') {
+                    return;
+                }
+
+                var urlRegex = /(https?:\/\/[^\s]+)/g;
+                return text.replace(urlRegex, function (url) {
+                    return '<a href="' + url + '">' + url + '</a>';
+                })
+            }
+
+
+            function demnguoc(endTime, holder) {
+                var id = $(holder).attr('data-id');
+                var days = Math.floor(endTime / (60 * 60 * 24));
+                var hours = Math.floor((endTime % (60 * 60 * 24)) / (60 * 60));
+                var minutes = Math.floor((endTime % (60 * 60)) / (60));
+                var seconds = Math.floor((endTime % (60)));
+
+                $('#day-' + id).html(days + ' ngày');
+                $('#hour-' + id).html(hours);
+                $('#minute-' + id).html(minutes);
+                $('#second-' + id).html(seconds);
+
+                setTimeout(function () {
+                    demnguoc(endTime - 1, holder);
+                }, 1000);
+            }
+
+            function getDealNew(limit, status, from_time) {
+                var params = {
+                    action_type: "list",
+                    type: "active",
+                    sort: "order",
+                    show: 20
+                };
+                var target = "#js-list-deal";
+                Hura.Ajax.get("deal", params).then(function (data) {
+                    //console.log(data);
+                    // productTpl is in template: javascript/tpl
+                    var result = JSON.parse(data);
+                    var newData = getDealData(result.list, limit);
+                    var html = Hura.Template.parse(productDeal, newData);
+                    Hura.Template.render(target, html);
+
+
+                    // chay dem nguoc
+                    $('.p-deal2020').each(function () {
+                        let dealId = $(this).attr('data-id');
+                        let dealTime = $(this).attr('data-time');
+                        demnguoc(dealTime, '#js-deal-wrapper-' + dealId);
+                    })
+                })
+            }
+
+            function getDealData(data, limit, from_time) {
+                var newArray = [];
+                data.forEach(function (item, index) {
+                    if (index > limit - 1) return;
+                    if (parseInt(item.product_info.id) > 0) {
+
+
+                        var new_info = jQuery.extend({}, item);
+                        var product_info = item.product_info;
+                        //console.log(new_info);
+
+
+                        let itemLeft = item.quantity - item.sale_order;
+
+                        new_info['formatPrice'] = formatCurrency(item.price) + "đ";
+
+                        new_info['formatMarketPrice'] = (product_info.marketPrice > 0) ? formatCurrency(product_info.marketPrice) + "đ" : " ";
+                        new_info['saleOnline'] = (product_info.productType['online-only'] != 0) ? "<i class='fa fa-exclamation-circle' aria-hidden='true'></i>Chỉ áp dụng đặt hàng online" : " ";
+                        new_info['discount'] = (product_info.marketPrice > 0) ? "(Tiết kiệm: " + Math.round(100 - (layGiaNhoNhat(product_info.extend, product_info.price) * 100) / product_info.marketPrice) + "% )" : "";
+
+                        new_info['khohang'] = (itemLeft > 0) ? "<span class='p-qty'><i class='fa fa-check' aria-hidden='true'></i> Còn hàng  </span>" : "<span style='color: #0074da;' class='qty'><i class='fas fa-phone fa-flip-horizontal'></i> Liên hệ</span>";
+
+                        new_info['coKmai'] = (product_info.specialOffer.all.length > 0) ? "<span class='p-haskmai'><i class='icons icon-gift'></i> </span>" : " ";
+
+                        new_info['anhThuongHieu'] = (product_info.brand.image != '') ? "" : " ";
+
+                        new_info['checkVAT'] = (product_info.hasVAT == 1) ? "[Đã bao gồm VAT]" : "[Chưa bao gồm VAT]";
+
+                        if (product_info.productSummary) {
+
+                            new_info['hoverSummary'] = "<span class='tooltip-title'><i class='fal fa-layer-group'></i> Thông số sản phẩm</span><div class='hover_offer'>";
+
+                            var splitSummary = product_info.productSummary.split("\n");
+
+                            splitSummary.forEach(function (value, item) {
+                                if (item < 5) new_info['hoverSummary'] += "- " + splitSummary[item] + "<br>";
+
+                            })
+
+                            new_info['hoverSummary'] += "</div>";
+
+                        } else new_info['hoverSummary'] = " ";
+
+                        if (product_info.specialOffer.all.length > 0) {
+                            new_info['hoverKmai'] = "<span class='tooltip-title'><i class='fal fa-gift'></i> Chương trình khuyến mại</span><div class='hover_offer kmai-ndung'>";
+
+                            var splitKmai = product_info.specialOffer.all;
+                            splitKmai.forEach(function (value, item) {
+                                new_info['hoverKmai'] += splitKmai[item].title + "<br>";
+                            })
+
+                            new_info['hoverKmai'] += "</div>";
+                        } else new_info['hoverKmai'] = " ";
+
+                        new_info['formatQty'] = ' ';
+
+                        if (itemLeft === 0 || itemLeft < 0) new_info['formatQty'] = 'Hết hàng !';
+                        else new_info['formatQty'] = 'Đã bán ' + item.quantity;
+
+
+                        new_info['progress'] = Math.round((item.sale_quantity * 100) / item.quantity);
+                        new_info['dealTimeLeft'] = Math.abs(item.deal_time_left);
+                        new_info['dealQtyLeft'] = item.quantity - item.sale_quantity;
+                        newArray.push(new_info);
+                    }
+                })
+                console.log(newArray);
+                return newArray;
+            }
+            function listenBuyDeal(prod_id, quantity, dealleft, redirect) {
+                if (dealleft <= 0) {
+                    alert(" Sản phẩm đã hết hàng ! ")
+                } else {
+                    var product_prop = {
+                        quantity: quantity,
+                        buyer_note: ''
+                    };
+
+
+                    Hura.Cart.Product.add(prod_id, 0, product_prop).then(function (response) {
+                        if (response.status === 'error') {
+
+                            console.log("Lỗi thêm sản phẩm vào giỏ hàng: error_type = " + response.error_type);
+                        } else {
+                            //hien thi tom tat
+                            showCartSummary()
+
+                            if (redirect) {
+                                location.href = redirect;
+                            } else {
+                                alert('Đã thêm sản phẩm vào giỏ hàng');
+                            }
+                        }
+                    });
+                }
+
+            }                             
+        </script>
+
+        <script>
+            var lazyloader = new LazyLoad({
+                elements: ".lazy"
+            });
+
+            var khohang_url = "/ajax/hanoipc.php?action=product-store-status&ids=";
+            var product_template = `<div class="p-component" data-id="{%= item.productId %} ">
+                  <div class="p-icon{%= item.productSKU %}"></div>
+                <p class="p-sku">Mã SP: {%= item.productSKU %}</p>
+                  <div class="p-img">
+                     <a href="{%= item.productUrl %}"> 
+                       <img src="{%= item.productImage.large %}" alt={%= item.productName %}"">
+                     </a>
+                  </div>
+
+                  <div class="p-info">
+                    <h3 class="p-name"><a href="{%= item.productUrl %}"> {%= item.productName %} </a></h3>
+                    <span class="p-mprice"> {%= item.formatMarketPrice %} </span>
+                    <span class="p-discount"> {%= item.discount %}</span>
+                    <span class="p-price"> {%# item.minPrice %} </span>
+
+                    <p class="p-online">{%= item.saleOnline %}</p>
+                    
+                    {%# item.coKmai %}
+                
+                  </div>
+                  <div class="p-action">
+                    {%# item.khohang %}
+                    
+                    <a href="javascript:void(0)" onclick="listenBuyPro({%= item.productId %},0,1,'')" data-id="{%= item.productId %}" class="p-buy js-buyNowAjax">  Thêm vào giỏ</a>
+                  </div>
+
+                  <div class="hover_content_pro tooltip-2019">
+                      <a href="{%= item.productUrl %}" class="hover_name">{%= item.productName %}</a>
+                      {%# item.anhThuongHieu %}
+                      <table>
+                          <tr>
+                            <td>- Giá bán:</td>
+                            <td>
+                              <span class="img_price_full"> {%= item.formatPrice %} </span>
+                              <span class="hover_vat">
+                                {%= item.checkVAT %}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr class="p-extend-minprice">
+                              <td>- Giá thấp nhất:</td>
+                              <td class="p-extend-minprice-text">
+                                  <span class="min_price"> {%= item.minPrice %}</span>
+                              </td>
+                          </tr>
+                          <tr><td>- Bảo hành:</td><td>{%= item.warranty %}</td></tr>
+                          <tr>
+                            <td>- Kho hàng:</td>
+                            <td>
+                             
+                                <span class="dongbotonkho js-dongbotonkho dongbotonkho-{%= item.productId %}" data-id="{%= item.productId %}">
+                                  <!-- <span>Liên hệ </span><br/> -->
+                                  <span class="detail " style="color: red; white-space:pre-line;">
+                                     
+                                  </span>
+                                </span>
+                             
+                            </td>
+                          </tr>
+                          
+                        </table>
+                        {%# item.hoverSummary %}
+                        {%# item.hoverKmai %}
+                  </div>
+                </div>`;
+
+            function listenBuyPro(product_id, variant_id, quantity, buyer_note, redirect) {
+                var product_prop = {
+                    quantity: quantity,
+                    buyer_note: buyer_note
+                };
+
+
+                Hura.Cart.Product.add(product_id, variant_id, product_prop).then(function (response) {
+                    if (response.status === 'error') {
+
+                        console.log("Lỗi thêm sản phẩm vào giỏ hàng: error_type = " + response.error_type);
+                    } else {
+                        //hien thi tom tat
+                        showCartSummary()
+
+                        if (redirect) {
+                            location.href = redirect;
+                        } else {
+                            alert('Đã thêm sản phẩm vào giỏ hàng');
+                        }
+                    }
+                });
+
+            }
+
+
+            function clickPlayVideo(holder) {
+
+                if (holder.length) {
+
+                    $(holder).on('click', function () {
+                        let videoUrl = $(this).attr('data-url');
+                        let w = $(this).attr('data-width');
+                        let h = $(this).attr('data-height');
+                        $(this).html('<iframe allowfullscreen frameborder="0" class="lazy" src="' + videoUrl + '" width="' + w + '" height="' + h + '"></iframe>');
+                        $(this).toggleClass('played');
+                    });
+
+                };
+
+            }
+
+
+            function ajaxSlider(holder) {
+
+                $(holder).owlCarousel({
+                    items: 5,
+                    margin: 0,
+                    loop: false,
+                    nav: true,
+                    autoplay: false,
+                    autoplayTimeout: 2000,
+                    autoplayHoverPause: true,
+                    dots: false,
+                    responsive: {
+                        0: {
+                            items: 5
+                        },
+                        1650: {
+                            items: 6,
+                        }
+                    },
+                    navText: ['<i class="fal fa-angle-left" aria-hidden="true"></i>', '<i class="fal fa-angle-right" aria-hidden="true"></i>']
+                });
+
+            }
+
+            function isOnScreen(elem) {
+                // if the element doesn't exist, abort
+                if (elem.length == 0) {
+                    return;
+                }
+                var $window = jQuery(window)
+                var viewport_top = $window.scrollTop()
+                var viewport_height = $window.height()
+                var viewport_bottom = viewport_top + viewport_height
+                var $elem = jQuery(elem)
+                var top = $elem.offset().top
+                var height = $elem.height()
+                var bottom = top + height
+
+                return (top >= viewport_top && top < viewport_bottom) ||
+                    (bottom > viewport_top && bottom <= viewport_bottom) ||
+                    (height > viewport_height && top <= viewport_top && bottom >= viewport_bottom)
+            }
+
+            function laythuonghieunoibat(holder, limit) {
+                var urlAjax = "/ajax/get_json.php?action=brand&action_type=featured-list&show=" + limit;
+
+                Hura.Ajax.get('brand', { action_type: 'featured-list', show: limit })
+                    .then(function (data) {
+
+                        var result = JSON.parse(data);
+                        var listBrand = result.list;
+                        var html = "";
+                        listBrand.forEach(function (item, index) {
+                            var brand_name = item.name;
+                            var brand_image = item.image;
+                            var brand_url = item.url;
+                            html += '<a href="' + brand_url + '"><img src="' + brand_image + '" alt="' + brand_name + '"/> </a>';
+                        });
+                        $(holder).html(html);
+                    });
+
+            }
+
+
+            function laySpMoi(holder) {
+                let objProduct = new Hura.ShowDataList();
+                let ajax_url = "/ajax/get_json.php?action=product&type=new&limit=20&sort=order";
+                objProduct.setUp(ajax_url, product_template, function (data_list) {
+
+                    var item_list = transformProductList(data_list['list']);
+
+                    return item_list;
+
+                });
+                objProduct.show(holder);
+                console.log("lay sp moi chay xong !");
+            }
+
+
+            function laySpHotDanhMucNoiBat(id) {
+                console.log('laySpHotDanhMucNoiBat ...' + id);
+                //var ajax_product = "/ajax/get_json.php?action=product&type=&limit=20&show=30&sort=order&category=";
+                Hura.Ajax.get('product', { type: '', show: 30, category: id, sort: 'order' }).then(function (data) {
+                    let response = JSON.parse(data);
+                    let item_list = transformProductList(response.list);
+                    if (response.total > 0) {
+                        var html = Hura.Template.parse(product_template, item_list);
+                        Hura.Template.render("#featured-cate-" + id, html);
+
+
+                        // $(".js-productslide-cate" + id).addClass('owl-carousel owl-theme') ;
+                        ajaxSlider(".js-productslide-cate" + id);
+
+                        if ($("#boxcate-" + id + " .p-component").hasClass("loaded") == false) {
+
+                            layicon("#boxcate-" + id + " .p-component");
+
+                        }
+                    }
+                });
+            }
+
+            function layGiaNhoNhat(data, price) {
+                var extend_price = [price];
+                Object.keys(data).forEach(function (item) {
+                    if (parseInt(data[item]) > 0) {
+                        extend_price.push(data[item].split('.').join(''))
+                    }
+                })
+                var minPrice = Math.min.apply(Math, extend_price);
+                return minPrice;
+            }
+
+            function transformProductList(item_list) {
+                return item_list.map(function (item) {
+                    return transformProductItem(item);
+                })
+            }
+
+            function transformProductItem(product_info) {
+
+                var new_info = jQuery.extend({}, product_info);
+                //console.log(new_info);
+
+                if (product_info.price === 0) {
+                    new_info['minPrice'] = "Liên hệ ";
+                } else {
+                    var x = layGiaNhoNhat(product_info.extend, product_info.price)
+                    if (x === 0) new_info['minPrice'] = "Liên hệ ";
+                    else new_info['minPrice'] = formatCurrency(x) + "đ";
+                }
+
+                new_info['formatPrice'] = (product_info.price > 0) ? formatCurrency(product_info.price) + "đ" : "Liên hệ !";
+
+                new_info['formatMarketPrice'] = (product_info.marketPrice > 0) ? formatCurrency(product_info.marketPrice) + "đ" : " ";
+                new_info['saleOnline'] = (product_info.productType['online-only'] != 0) ? "<i class='fa fa-exclamation-circle' aria-hidden='true'></i>Chỉ áp dụng đặt hàng online" : " ";
+                new_info['discount'] = (product_info.marketPrice > 0) ? "(Tiết kiệm: " + Math.round(100 - (layGiaNhoNhat(product_info.extend, product_info.price) * 100) / product_info.marketPrice) + "% )" : "";
+
+                new_info['khohang'] = (product_info.quantity > 0 || product_info.quantity == -6) ? "<span class='p-qty'><i class='fa fa-check' aria-hidden='true'></i> Còn hàng  </span>" : "<span style='color: #0074da;' class='qty'><i class='fas fa-phone fa-flip-horizontal'></i> Liên hệ</span>";
+
+                new_info['coKmai'] = (product_info.specialOffer.all.length > 0) ? "<span class='p-haskmai'><i class='icons icon-gift'></i> </span>" : " ";
+
+                new_info['anhThuongHieu'] = (product_info.brand.image != '') ? "" : " ";
+
+                new_info['checkVAT'] = (product_info.hasVAT == 1) ? "[Đã bao gồm VAT]" : "[Chưa bao gồm VAT]";
+
+                if (product_info.productSummary) {
+
+                    new_info['hoverSummary'] = "<span class='tooltip-title'><i class='fal fa-layer-group'></i> Thông số sản phẩm</span><div class='hover_offer'>";
+
+                    var splitSummary = product_info.productSummary.split("\n");
+
+                    splitSummary.forEach(function (value, item) {
+                        if (item < 5) new_info['hoverSummary'] += "- " + splitSummary[item] + "<br>";
+
+                    })
+
+                    new_info['hoverSummary'] += "</div>";
+
+                } else new_info['hoverSummary'] = " ";
+
+                if (product_info.specialOffer.all.length > 0) {
+                    new_info['hoverKmai'] = "<span class='tooltip-title'><i class='fal fa-gift'></i> Chương trình khuyến mại</span><div class='hover_offer kmai-ndung'>";
+
+                    var splitKmai = product_info.specialOffer.all;
+                    splitKmai.forEach(function (value, item) {
+                        new_info['hoverKmai'] += splitKmai[item].title + "<br>";
+                    })
+
+                    new_info['hoverKmai'] += "</div>";
+                } else new_info['hoverKmai'] = " ";
+
+                return new_info;
+
+            }
+
+
+            function open_oauth(service) {
+                window.open("/login_oauth.php?service=" + service + "&return_url=https://www.hanoicomputer.vn/cart", "Login_OAuth", "width=600, height=500");
+            }
+
+
+            function subscribe_newsletter() {
+                var email = document.getElementById('email_newsletter').value;
+                if (email.length > 3) {
+                    $.post("/ajax/post.php", { action: 'customer', action_type: 'register-for-newsletter', full_name: 'Khách hàng nhận bản tin', email: email }, function (data) {
+                        if (data == 'success') { alert("Quý khách đã đăng ký thành công "); $("#email_newsletter").val("Nhập Email nhận bản tin"); }
+                        else if (data == 'exist') { alert("Email này đã tồn tại"); }
+                        else { alert('Lỗi xảy ra, vui lòng thử lại '); }
+
+                    });
+                } else { alert('Vui lòng nhập địa chỉ email'); }
+            }
+
+            function downloadCartImage() {
+                var print_url = "https://www.hanoicomputer.vn/print/user.php?view=cart-new&uid=" + Hura.User.getUserId();
+
+                window.location = "https://www.hanoicomputer.vn/tools/screenshot/screenshot.php?url=" + encodeURIComponent(print_url);
+            }
+
+            function detectPaste(textarea, callback) {
+                textarea.onpaste = function () {
+                    var sel = getTextAreaSelection(textarea);
+                    var initialLength = textarea.value.length;
+                    window.setTimeout(function () {
+                        var val = textarea.value;
+                        var pastedTextLength = val.length - (initialLength - sel.length);
+                        var end = sel.start + pastedTextLength;
+                        callback({
+                            start: sel.start,
+                            end: end,
+                            length: pastedTextLength,
+                            text: val.slice(sel.start, end)
+                        });
+                    }, 1);
+                };
+            }
+
+            function search(inputString) {
+                var htmlResult = "<div class='list'>";
+                if (inputString.trim() != '') {
+                    urlSearch = '/ajax/get_json.php?action=search&content=product&q=' + encodeURIComponent(inputString);
+
+                    $.getJSON(urlSearch, function (result) {
+                        var data = result;
+                        data.forEach(function (item) {
+                            var price = Hura.Util.writeStringToPrice(item.price);
+                            if (price != 0) price = price + ' đ';
+                            else price = "Liên hệ !"
+
+                            htmlResult += '<a href="' + item.productUrl + '">';
+                            htmlResult += '<img src="' + item.productImage.medium + '" alt="' + item.productName + '" />';
+                            htmlResult += '<span class="info">';
+                            htmlResult += '<span class="name">' + item.productName + '</span>';
+                            htmlResult += '<span class="price">' + price + '</span>';
+                            htmlResult += '</span>';
+                            htmlResult += '</a>';
+                        });
+                        htmlResult += '</div>';
+                        $(".autocomplete-suggestions").html(htmlResult);
+                        $(".autocomplete-suggestions").show();
+                    });
+
+                } else {
+                    $(".autocomplete-suggestions").hide();
+                }
+            }
+
+            function getMinPrice(holder) {
+                var data = [];
+                var marketPrice = $(holder).attr('data-marketPrice');
+                var price = $(holder).attr('data-price');
+
+                data.push(price);
+
+                var id = $(holder).attr('data-prodId');
+
+                var price_1 = $(holder).attr('data-extend-price1');
+                if (price_1 != '' && price_1 != '0') {
+                    data.push(parseInt(price_1.split('.').join('')));
+                }
+
+                var price_2 = $(holder).attr('data-extend-price2');
+                if (price_2 != '' && price_2 != '0') {
+                    data.push(parseInt(price_2.split('.').join('')));
+                }
+                var price_3 = $(holder).attr('data-extend-price3');
+                if (price_3 != '' && price_3 != '0') {
+                    data.push(parseInt(price_3.split('.').join('')));
+                }
+
+                var minPrice = Math.min.apply(Math, data);
+
+                console.log(minPrice + "-" + id);
+                if (minPrice != 0) {
+                    $('#minPrice-' + id).html(formatCurrency(minPrice) + "đ");
+                    $('#minPrice-' + id + '-1').html(formatCurrency(minPrice) + "đ");
+                    if (marketPrice > 0) {
+                        var discount = "(Tiết kiệm: " + Math.round(100 - (minPrice * 100) / marketPrice) + "% )";
+                        $('#p-discount-' + id).html(discount);
+                    }
+
+                } else if (minPrice === 0) {
+                    $('#minPrice-' + id).html("Liên hệ");
+                    $('#minPrice-' + id + '-1').html("Liên hệ");
+
+                } else {
+                    $('#minPrice-' + id).html(formatCurrency(price) + "đ");
+                    $('#minPrice-' + id + '-1').html(formatCurrency(price) + "đ");
+                    if (marketPrice > 0) {
+                        var discount = "(Tiết kiệm: " + Math.round(100 - (price * 100) / marketPrice) + "% )";
+                        $('#p-discount-' + id).html(discount);
+                    }
+                }
+
+            }
+
+            function layIdsp(holder) {
+                var id_sp = [];
+                $(holder).each(function () {
+                    id_sp.push($(this).attr('data-id'));
+                })
+                return id_sp;
+            }
+
+
+            function layicon(holder) {
+                var id = layIdsp(holder).join(",");
+                Hura.Ajax.get('marketing-product-offer', { action_type: '', ids: id })
+                    .then(function (data) {
+                        $.each(JSON.parse(data), function (i, field) {
+                            var code = field['promo_code'];
+                            var sku = field['sku'].trim();
+                            $(".p-icon" + sku).prepend("<span class='" + code + "'></span>");
+                        });
+                    });
+                $(holder).addClass("loaded");
+            }
+
+            function showCartNotify() {
+                $("#cart-fixed-2019").addClass("hover");
+                setTimeout(function () {
+                    $("#cart-fixed-2019").removeClass("hover");
+                }, 2000);
+            }
+
+            var SHOW_CART_SUMMARY_NODE = "#count_shopping_cart_store";
+            function showCartSummary() {
+                Hura.Cart.getSummary().then(summary => {
+                    var $status_container = $(SHOW_CART_SUMMARY_NODE);
+                    //console.log("cart_summary = " + JSON.stringify(summary, true, 4));
+                    $status_container.html(summary.total_item);
+                });
+            }
+
+            function addProductToCart(product_id, variant_id, quantity, buyer_note) {
+                var product_prop = {
+                    quantity: quantity,
+                    buyer_note: buyer_note
+                };
+
+                return Hura.Cart.Product.add(product_id, variant_id, product_prop);
+            }
+
+            function buyButton(product_id, variant_id, quantity, redirect) {
+                if (!Hura.Cart.isReady()) alert("Cart chua san sang!");
+                var product_id = product_id;
+                var variant_id = variant_id;
+                var buyer_note = '';
+                var quantity = quantity;
+
+                var addStatus = addProductToCart(product_id, variant_id, quantity, buyer_note);
+                if (addStatus) {
+                    addStatus.then(function () {
+                        console.log("cart content = " + JSON.stringify(Hura.Cart.getCart(), true, 4));
+                        showCartSummary();
+
+                        if (typeof redirect === 'undefined') {
+                            alert("Đã thêm sản phẩm vào giỏ hàng");
+                            showCartNotify();
+                        } else if (redirect == 'cart') {
+                            location.href = "/cart";
+                        } else if (redirect == 'payinstall') {
+                            location.href = "/cart?show=tragop&type=cart";
+                        }
+
+                    })
+                } else {
+                    console.log("cart content = " + JSON.stringify(Hura.Cart.getCart(), true, 4));
+                    Hura.Cart.goToCartPage();
+                }
+            }
+
+
+
+            $(document).ready(function (e) {
+
+
+                showCartSummary();
+
+                //click play video
+                clickPlayVideo('.youtube-video-place');
+
+                //toggle bans hangf trujc tuyenes - 26101029
+                $('#hnc-saleonline .h0nline-title-tab .hotline-title').hover(function () {
+                    var h0nline_id = $(this).attr('data-id');
+
+                    //31102019
+                    $('#hnc-saleonline .h0nline-title-tab .hotline-title').removeClass('hovered');
+                    $(this).addClass('hovered');
+
+                    $('#hnc-saleonline .h0nline-item .hotline-wrap').css('display', 'none');
+
+                    $('#' + h0nline_id).css('display', 'block');
+                })
+
+                //search 
+                var curr_text = "";
+                var count_select = 0;
+                var curr_element = "";
+
+
+                $(".main-search .select .item").click(function () {
+                    var value = $(this).attr("data-value");
+                    var text = $(this).text();
+
+                    $(".main-search input[name='scat_id']").val(value);
+                    $(".main-search .select .title").text(text);
+                    $(".main-search .select .content").hide();
+                });
+
+
+                //layicon kmai
+                if ($(".p-component").hasClass("loaded") == false) {
+                    layicon('.p-component');
+                }
+                $("#js-cart-hover").hover(function () {
+                    $("#get_item_cart").load("/cart?type=ajax");
+
+                })
+                $(window).scroll(function () {
+
+                    //gotoTop
+                    if ($(window).scrollTop() > 0) $("#toTop").fadeIn();
+                    else $("#toTop").fadeOut();
+
+                    //fixed header
+                    if ($(window).scrollTop() > 635) {
+                        $(".header-2019").addClass("fixed");
+                        $(".body-new-2019").css('padding-top', 153);
+                    }
+                    else {
+                        $(".header-2019").removeClass("fixed");
+                        $(".body-new-2019").css('padding-top', 0);
+                    }
+
+
+                });
+
+                $("#toTop").click(function () {
+
+                    $('html,body').animate({ scrollTop: 0 }, 800);
+                });
+
+                //hienthi gia nho nhat
+                $('.p-component').each(function () {
+                    var holder = $(this).find('.js-get-minPrice');
+                    getMinPrice(holder);
+                })
+            });
+
+        </script>
+        <!-- 812019 menu -->
+
+        <script>
+            function layFilter(id) {
+                //var filter_url = "/ajax/get_json.php?action=category&action_type=filter&id=" + id;
+
+                Hura.Ajax.get('category', { action_type: 'filter', id: id })
+                    .then(function (data) {
+
+                        var locgia = hienthilocgia(data.price, ".dmuc-filter-price-" + id);
+
+                        var boloc = hienthilboloc(data.filter, ".dmuc-filter-attr-" + id);
+                    });
+
+            }
+
+
+            function hienthilocgia(data, holder) {
+                var html = "";
+                if (data.length == 0) return html = " ";
+                data.forEach(function (item, value) {
+                    html += "<div class='item-sub'><div class='position-relative'><a href=" + item.url + " title=" + item.name + ">" + item.name + "</a></div></div>"
+                })
+                $(holder).html(html);
+            }
+
+            function hienthilboloc(data, attrName, holder) {
+                var html = "";
+
+                Object.keys(data).forEach(function (key, keyIndex) {
+
+                    if (data[key].attributeName == attrName) {
+
+                        data[key].filterList.forEach(function (filterItem, index) {
+
+                            html += hienthitruongloc(filterItem);
+
+                        })
+                    }
+                })
+
+                $(holder).html(html);
+            }
+
+
+            function hienthitruongloc(filterAttr) {
+
+                var child_html = "";
+
+                child_html += "<div class='item-sub'><div class='position-relative'><a href=" + filterAttr.url + " title=" + filterAttr.name + ">" + filterAttr.name + "</a></div></div>";
+
+                return child_html;
+
+            }
+
+
+            var _cache_hover = {};
+            function showHtmlOnHover(tpl_file, node_id, status) {
+                if (!tpl_file || !node_id) {
+                    console.log('showHtmlOnHover error: không thấy tpl hoặc node_id');
+                    return;
+                }
+                $('.js-header-template').css('display', 'none');
+                var ajax_url = "/ajax/render_html.php?tpl=" + tpl_file;
+                var $display_node = $("#" + node_id);
+
+                var current_mode = $display_node.css('display');
+                // hide on hover out
+                if (status != 1) {
+                    $display_node.css('display', 'none');
+                    return;
+                } else {
+                    if (tpl_file.indexOf('menu_cat') > -1) $('#menu-2019 .sub_nav').css('display', 'none');
+                    $display_node.css('display', 'block');
+                }
+
+
+                if (_cache_hover.hasOwnProperty(tpl_file)) {
+                    console.log('Hiển thị từ cache!');
+                    $display_node.html(_cache_hover[tpl_file]);
+                    if (node_id == 'js-ban_hang_truc_tuyen') {
+                        //toggle bans hangf trujc tuyenes - 26101029
+                        $('#js-ban_hang_truc_tuyen .h0nline-title-tab .hotline-title').hover(function () {
+                            var h0nline_id = $(this).attr('data-id');
+
+                            //31102019
+                            $('#js-ban_hang_truc_tuyen .h0nline-title-tab .hotline-title').removeClass('hovered');
+                            $(this).addClass('hovered');
+
+                            $('#js-ban_hang_truc_tuyen .h0nline-item .hotline-wrap').css('display', 'none');
+
+                            $('#' + h0nline_id).css('display', 'block');
+                        })
+                    }
+                } else {
+                    $display_node.html("Đang tải...");
+                    $.get(ajax_url, function (content) {
+                        _cache_hover[tpl_file] = content;
+                        $display_node.html(content);
+
+                        if (node_id == 'js-ban_hang_truc_tuyen') {
+                            //toggle bans hangf trujc tuyenes - 26101029
+                            $('#js-ban_hang_truc_tuyen .h0nline-title-tab .hotline-title').hover(function () {
+                                var h0nline_id = $(this).attr('data-id');
+
+                                //31102019
+                                $('#js-ban_hang_truc_tuyen .h0nline-title-tab .hotline-title').removeClass('hovered');
+                                $(this).addClass('hovered');
+
+                                $('#js-ban_hang_truc_tuyen .h0nline-item .hotline-wrap').css('display', 'none');
+
+                                $('#' + h0nline_id).css('display', 'block');
+                            })
+                        }
+
+                    });
+                }
+
+            }
+
+
+
+            $(document).ready(function () {
+                $('.js-hover-menu').mouseenter(function () {
+
+                    showHtmlOnHover($(this).data('tpl'), $(this).data('display-node'), 1);
+
+                }).mouseleave(function () {
+                    showHtmlOnHover($(this).data('tpl'), $(this).data('display-node'), 0);
+
+                });
+
+                //$(".js-hover-menu").hover(function(){
+
+                //showHtmlOnHover($(this).data('tpl'), $(this).data('display-node'));
+
+
+                /*
+                    let filter_data = {
+                        'price' : '',
+                        'attr' : []
+                    }
+            
+                    let menuid = $(this).attr('data-id') ;
+            
+                    let filterHOder = $(this).children('.sub_nav').find('.js-filter-cate')
+            
+                    var filter_url = "/ajax/get_json.php?action=category&action_type=filter&id=" + menuid;
+            
+                    Hura.Ajax.get('category', { action_type: 'filter', id: menuid })
+                        .then(function(data){
+            
+                            if($(this).hasClass('loaded')==false) {
+                                if(filterHOder!='undefined'){
+            
+                                    filterHOder.each(function(index,item){
+                                        let filterName = $(this).attr('data-filter');
+                                        if(filterName==='price'){
+                                            //filter_data['price'] =filterName;      
+                                            hienthilocgia(data.price,$(this).find('.js-filter-holder'));
+            
+                                        } else hienthilboloc(data.filter,filterName,$(this).find('.js-filter-holder'));
+            
+                                    })
+            
+                                    //console.log(filter_data);
+                                    //layFilter(menuid,filter_data);
+            
+            
+                                }
+                                $(this).addClass('loaded');
+                            }
+                        });
+            
+              */
+
+
+
+                //})
+
+            })
+        </script>
+
+        <!---//script hien thi homepage-->
+
+
+        <script>
+            //on page ready
+            $(function () {
+                $("#chkTaxInvoice").click(function () {
+                    if ($(this).is(":checked")) $("#ajxTaxInvoice").show();
+                    else $("#ajxTaxInvoice").hide();
+                });
+                //hien thi tong don hang
+                calculateCartTotalPrice();
+
+                //thay doi so luong chon mua
+                listenQuantityChange();
+
+                //xoa sp
+                listenDeleteCartItem();
+
+                //check Voucher
+                listenVoucherCode('#discount_code')
+                $(".new-cart-del-shopping-btn").on("click", function () {
+                    removeAll();
+                    location.reload();
+                });
+
+
+                $(".js-check-sendcart").click(function () {
+                    if ($(".js-check-sendcart").hasClass('submited')) return false;
+                    $("#form-send-cart").submit();
+                });
+            });
+
+            function show(id) {
+                $(".tbl_pay .pay_content").hide();
+                var totalCart = $("#js-total-before-fee-discount").val();
+                switch (id) {
+                    case 11: //vnpay
+                        var chiphi = (totalCart * 1.1) / 100 + 1650;
+                        $("#js-payonline-fee").val(chiphi);
+                        break;
+                    case 12: //zalopay
+                        var chiphi = (totalCart * 1.1) / 100;
+                        $("#js-payonline-fee").val(chiphi);
+                        break;
+                }
+                calculateCartTotalPrice();
+                $("#payment_" + id + "_amount").html(Hura.Util.writeStringToPrice(chiphi) + " <u>đ</u>");
+                $("#payment_" + id).show();
+            }
+
+            function compare(a, b) {
+                // Dùng toUpperCase() để không phân biệt ký tự hoa thường
+                const districtA = parseInt(a.ordering);
+                const districtB = parseInt(b.ordering);
+
+                let comparison = 0;
+                if (districtA > districtB) {
+                    comparison = 1;
+                } else if (districtA < districtB) {
+                    comparison = -1;
+                }
+                return comparison * -1;
+            }
+
+            function getDistrict(province_id) {
+                $.getJSON("/ajax/get_json.php?action=province&action_type=district-list&province=" + province_id, function (data) {
+                    var $district_list = data.sort(compare);
+                    var html = '<span class="txt2">Quận huyện</span><span class="custom-province"><select name="user_info[district]" id="buyer_district"><option value="0">--Lựa chọn--</option>';
+                    $.each($district_list, function (key, item) {
+                        html += '<option value=' + item.id + '>' + item.name + '</option>';
+                    });
+                    html += '</select></span>';
+
+                    $('#district-holder-login').html(html);
+                });
+            }
+            function validateEmail(sEmail) {
+                var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                if (filter.test(sEmail)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+
+            }
+            function listenVoucherCode(dom_node) {
+                $(dom_node).on("change", function () {
+                    var voucher_code = this.value.trim();
+                    var cart_total_before_fee_discount = $("#js-total-before-fee-discount").val();
+                    var $message_holder = $("#js-voucher-message");
+
+                    //update field to send when submit
+                    $("#js_coupon_code").val(voucher_code);
+
+                    //xu ly hien thi
+                    if (voucher_code.length > 2) {
+                        var proId = '';
+                        $(".js-item-row").each(function () {
+                            var x = $(this).attr("data-item_id");
+                            proId += x + ",";
+                        });
+                        var params = {
+                            action_type: 'check',
+                            code: voucher_code,
+                            order_value: cart_total_before_fee_discount,
+                            product_ids: proId
+                        }
+
+                        Hura.Ajax.post('coupon', params).then(function (data) {
+
+                            console.log("voucher", data);
+                            var voucher_info = JSON.parse(data);
+
+                            if (voucher_info.status == 'error') {
+                                //bao loi
+                                //alert(voucher_info.error);
+                                $message_holder.html(voucher_info.message);
+                                return;
+                            }
+
+                            $message_holder.html(voucher_info.coupon_info.title);
+
+                            //xu ly khac
+                            switch (voucher_info.coupon_info.type) {
+                                case "cash": //giam tru tien
+                                    $("#js-discount-voucher").val(Hura.Util.strToNumber(voucher_info.coupon_info.cash_discount));
+                                    $("#price-discount").html(Hura.Util.writeStringToPrice(voucher_info.coupon_info.cash_discount));
+                                    break;
+                                case "priceoff"://giam gia %
+
+                                    $("#js-discount-voucher").val(Hura.Util.strToNumber(voucher_info.coupon_info.cash_discount));
+                                    $("#price-discount").html(Hura.Util.writeStringToPrice(voucher_info.coupon_info.cash_discount));
+                                    break;
+                                case "pro":
+                                    //todo:
+
+                                    break;
+                                case "other":
+                                    //todo:
+
+                                    break;
+                            }
+
+                            //recalculate total
+                            calculateCartTotalPrice();
+
+                        })
+                    } else {
+                        $("#js-discount-voucher").val(0);
+                        $message_holder.html('');
+                        //recalculate total
+                        calculateCartTotalPrice();
+                    }
+
+
+                })
+            }
+
+
+            //thay doi tong gia cua 1 san pham
+            function changeItemTotalPrice() {
+                var $row = $(this).closest(".js-item-row");
+                var item_type = $row.data("item_type");
+                var price = parseInt($row.find(".buy-price").val());
+                var quantity = parseInt($row.find(".buy-quantity").val());
+
+                //get bulk-price
+                // var bulk_price_config = $row.find(".bulk_price_config").val();
+                // if(bulk_price_config.length > 3) {
+                //     var bulk_price_list = JSON.parse(bulk_price_config);
+                //     if(bulk_price_list.length > 1) {
+                //         price  = _getBulkPrice(quantity, price, bulk_price_list);
+                //         $row.find(".js-show-buy-price").html(Hura.Util.writeStringToPrice(price));
+                //     }
+                // }
+
+                //get addon-price
+                var total_addon_price = 0;
+                $row.find(".js-addon-select").each(function () {
+                    if (this.checked) {
+                        total_addon_price += parseInt(this.getAttribute("data-price"));
+                    }
+                });
+
+                var total_price = (price + total_addon_price) * quantity;
+
+                //loai bo so luong vo ly
+                if (quantity < 0 && 1 < 2) {
+                    $row.find(".buy-quantity").val(0);
+                    total_price = 0;
+                }
+
+                $row.find(".total-item-price").html(Hura.Util.writeStringToPrice(total_price));
+
+                calculateCartTotalPrice();
+
+                console.log("updating cart = " + item_type);
+
+                //save to cart
+                switch (item_type) {
+                    case "product":
+                        Hura.Cart.Product.update($row.data("item_id"), $row.data("variant_id"), { quantity: quantity });
+                        break;
+
+                    case "deal":
+
+                        Hura.Cart.Deal.update($row.data("item_id"), { quantity: quantity });
+                        break;
+
+                    case "combo":
+                        Hura.Cart.Combo.update($row.data("item_id"), { quantity: quantity });
+                        break;
+
+                }
+
+                //
+                function _getBulkPrice(qty, normal_price, bulk_price_config) {
+                    /*var bulk_price_config = [
+                     {
+                     "quantity_from" => 1,
+                     "quantity_to" => 5,
+                     "price" => 10,
+                     },
+                     {
+                     "quantity_from" => 6,
+                     "quantity_to" => 10,
+                     "price" => 6,
+                     }
+                     ];*/
+
+                    var price = normal_price;
+                    if (bulk_price_config.length > 0) {
+                        bulk_price_config.forEach(function (item) {
+                            if (qty >= item['quantity_from'] && (qty <= item['quantity_to'] || item['quantity_to'] == 0)) {
+                                price = item['price'];
+                                return true;
+                            }
+                        })
+                    }
+
+                    return price;
+                }
+            }
+
+            //tinh tong gia don hang
+            function calculateCartTotalPrice() {
+                var dom_target = ".total-cart-price";
+                var dom_target_2 = ".total-cart-payment";
+                var total_cart_price = 0;
+
+                $(".total-item-price").each(function () {
+                    total_cart_price += Hura.Util.strToNumber($(this).html());
+                });
+
+                //log for other reference
+                $("#js-total-before-fee-discount").val(total_cart_price);
+
+                //giam gia khac: voucher, membership, loyalty point conversion
+                var total_discount = 0;
+                total_discount += parseInt($("#js-discount-voucher").val());
+                //total_discount += parseInt($("#js-discount-membership").val());
+
+                //Lưu giá trị voucher cho trang in:
+                var voucher_value = parseInt($("#js-discount-voucher").val());
+
+                //phi khac: shipping, COD...
+                var total_other_fee = 0;
+                total_other_fee += parseInt($("#js-fee-shipping").val());
+                total_other_fee += parseInt($("#js-fee-cod").val());
+                total_other_fee += parseInt($("#js-payonline-fee").val());
+                $(dom_target).html(Hura.Util.writeStringToPrice(total_cart_price) + " <u>đ</u>");
+                $(dom_target_2).html(Hura.Util.writeStringToPrice(total_cart_price + total_other_fee - total_discount) + " <u>đ</u>");
+            }
+
+            //nghe thay doi so luong sp
+            $(".quantity-change").change(function () {
+                var value = parseInt($(this).val());
+                var stock = parseInt($(this).attr("data-stock"));
+
+                if (Math.floor(value) == value && $.isNumeric(value) && parseInt(value) > 0) { }
+                else $(this).val(1);
+
+                //console.log("a",value,stock);
+                if (value > stock) {
+                    alert("Bạn được mua tối đa " + stock + " sản phẩm này");
+                    $(this).val(stock)
+                }
+            });
+            function listenQuantityChange() {
+                var $track_change = $(".quantity-change");
+
+                //thay doi so luong sp mua, neu nhap so luong
+                $track_change.on("change", function (e) {
+                    changeItemTotalPrice.call(this);
+                });
+
+                //thay doi so luong sp theo - hoac +
+                $track_change.on("click", function (e) {
+                    if (e.target.nodeName === 'INPUT') return;
+
+                    var quantity_change = parseInt(this.getAttribute("data-value"));
+                    var $row = $(this).closest(".js-item-row");
+                    var current_quantity = parseInt($row.find(".buy-quantity").val());
+                    var quantity_stock = parseInt($row.find(".buy-quantity").attr("data-stock"));
+
+                    //loai bo so luong vo ly
+                    if (current_quantity + quantity_change < 1 && 1 < 2) {
+                        $row.find(".buy-quantity").val(1);
+                        return;
+                    }
+
+                    if (current_quantity + quantity_change > quantity_stock) {
+                        alert("Bạn được mua tối đa " + quantity_stock + " sản phẩm này");
+                        $row.find(".buy-quantity").val(quantity_stock);
+                        return;
+                    }
+                    $row.find(".buy-quantity").val(current_quantity + quantity_change);
+
+                    //then update
+
+                    changeItemTotalPrice.call(this);
+                });
+            }
+
+            function removeAll() {
+                if (confirm("Bạn muốn xóa tất cả sản phẩm trong giỏ hàng!") == false) {
+                    return;
+                }
+                $(".delete-from-cart").each(function () {
+                    var $row = $(this).closest(".js-item-row");
+                    var item_type = $row.data("item_type");
+                    var item_id = $row.data("item_id");
+
+                    calculateCartTotalPrice();
+
+                    console.log("deleting item from cart = " + item_type);
+
+                    var deleteStatus;
+                    //save to cart
+                    switch (item_type) {
+                        case "product":
+                            deleteStatus = Hura.Cart.Product.remove(item_id, $row.data("variant_id"));
+                            break;
+
+                        case "deal":
+
+                            deleteStatus = Hura.Cart.Deal.remove(item_id);
+                            break;
+
+                        case "combo":
+                            deleteStatus = Hura.Cart.Combo.remove(item_id);
+                            break;
+
+                    }
+
+                    if (deleteStatus) {
+                        deleteStatus.then(function () {
+                            $row.remove();
+                            if ($(".js-item-row").length == 0) location.reload();
+                        })
+                    }
+                });
+            }
+
+            //nghe xoa san pham
+            function listenDeleteCartItem() {
+                $(".delete-from-cart").on("click", function () {
+                    if (confirm("Bạn muốn xóa sản phẩm này khỏi giỏ hàng!") == false) {
+                        return;
+                    }
+
+                    var $row = $(this).closest(".js-item-row");
+                    var item_type = $row.data("item_type");
+                    var item_id = $row.data("item_id");
+
+                    calculateCartTotalPrice();
+
+                    console.log("deleting item from cart = " + item_type);
+
+                    var deleteStatus;
+                    //save to cart
+                    switch (item_type) {
+                        case "product":
+                            deleteStatus = Hura.Cart.Product.remove(item_id, $row.data("variant_id"));
+                            break;
+
+                        case "deal":
+
+                            deleteStatus = Hura.Cart.Deal.remove(item_id);
+                            break;
+
+                        case "combo":
+                            deleteStatus = Hura.Cart.Combo.remove(item_id);
+                            break;
+
+                    }
+
+                    if (deleteStatus) {
+                        deleteStatus.then(function () {
+                            $row.remove();
+                            calculateCartTotalPrice();
+                            if ($(".js-item-row").length == 0) location.reload();
+                        })
+                    }
+                })
+            }
+
+            function check_field() {
+                var number_regex1 = /^[0]\d{9}$/i;
+                var number_regex2 = /^[0]\d{10}$/i;
+                var error = "";
+                var check_name = document.getElementById('buyer_name').value;
+                if (check_name.length < 2) error += "- Bạn chưa nhập tên\n";
+                var check_email = document.getElementById('buyer_email').value;
+                if (check_email.length < 4) {
+                    error += "- Bạn chưa nhập email\n";
+                }
+                if (check_email.length > 4) {
+                    if (validateEmail(check_email) == false) error += "- Email không hợp lệ\n";
+                }
+                var check_add = document.getElementById('buyer_address').value;
+                if (check_add.length < 5) error += "- Bạn chưa nhập địa chỉ\n";
+
+                var check_tel = document.getElementById('buyer_mobile').value;
+                if (check_tel.length < 4) error += "- Bạn chưa nhập SĐT\n";
+                else {
+                    if (number_regex1.test(check_tel) == false && number_regex2.test(check_tel) == false) error += "- Số điện thoại chưa chính xác\n";
+                }
+
+                var check_province = document.getElementById('buyer_province').value;
+                if (check_province == 0) error += "- Bạn chưa chọn thành phố\n";
+                var check_district = $('#buyer_distrct').val();
+                if (typeof check_district != undefined && check_district) {
+                    if (check_district == 0) error += "-Bạn chưa chọn quận huyện\n";
+                }
+
+                if (error != "") {
+                    alert(error); return false;
+                }
+
+                $(".js-send-cart").addClass('submited');
+                $(".js-send-cart").html("Đang xử lý...");
+                return true;
+            }
+
+
+        </script>
+
+
+
+
+        <script>
+            $(document).ready(function () {
+                // $(".js-apply-discount-code").on("click", function () {
+                //     var code = $("#discount_code_full").val();
+                //     var discountCode = $('#discount_code').val();
+                //     var price = $("#total_value").attr("data-value");
+                //     var ids = ''
+
+                //     if (code == '') {
+                //         $('#discount_code').val();
+                //         $("#discount_code_full").val(discountCode);
+                //         check_discount('coupon', discountCode, price, ids);
+                //         //console.log("gia tri cua t :" + discountCode + "gia tri cua price :" + price + "gia tri cua ids : " + ids);
+
+                //     } else if (code == discount) {
+                //         alert("Mã voucher đã được sử dụng")
+                //     } else {
+                //         $("#discount_code_full").val(discountCode);
+                //         //console.log("gia tri cua t :" + discount + "gia tri cua price :" + price + "gia tri cua ids : " + ids);
+                //         check_discount('coupon', discountCode, price,ids);
+                //     }
+                //     //console.log("gia tri cua t :" + discount + "gia tri cua price :" + price + "gia tri cua ids : " + ids );
+                // });
+            });
+
+            function updatePrice(e, n, r) {
+                check_interger(r) || (alert("Vui lòng nhập số > 0"), r = 1, $("#quantity_" + e + "_" + n).val(r)), show_cart_total(e, n, r);
+                var t = $("#discount_code").val();
+                var ids = '';
+                if (t.length > 0) {
+                    var o = $("#total_value").html().split('.').join('');
+                    //console.log("gia tri cua t :" + t + "gia tri cua o :" + o + "gia tri cua ids : " + ids);
+                    //check_discount("coupon", t, parseInt(o),ids)
+                }
+            }
+
+            function check_discount(e, r, n, ids) {
+                "coupon" == e && ($("#checking_discount_code").html("vui lòng đợi..."), $.post("ajax/post.php", {
+                    action: 'coupon',
+                    action_type: 'apply',
+                    code: r,
+                    order_value: n,
+                    product_ids: ids
+                }, function (e) {
+
+                    var t = jQuery.parseJSON(e);
+                    console.log("discount:", t);
+                    if (t.status == 'error') {
+                        $("#checking_discount_code").html(t.message);
+                        $("#discount_code").val("");
+                        $("#price-discount").text('0');
+                        updateTotalPrice();
+                    } else {
+                        for (var n = "", r = 0, o = document.getElementById("total_value").innerHTML; o.indexOf(".") > 0;) o = o.replace(".", "");
+                        switch (t.coupon_info.type) {
+                            case "pro":
+                                n = t.coupon_info.content;
+                                break;
+                            case "cash":
+                                n = writeStringToPrice(t.total_cash_discount + "") + " VND", r = parseInt(o) - parseInt(t.total_cash_discount);
+                                z = t.total_cash_discount;
+                                $("#price-discount").text(formatCurrency(t.total_cash_discount));
+                                updateTotalPrice();
+                                break;
+                            case "priceoff":
+
+                                n = t.coupon_info.content + "%", r = t.total_cash_discount;
+
+                                price_discount = t.total_cash_discount;
+
+                                $("#price-discount").text(formatCurrency(price_discount));
+                                updateTotalPrice();
+                                break;
+                            case "other":
+                                $("#price-discount").text(t.coupon_info.title);
+                        }
+                        $("#checking_discount_code").html(t.coupon_info.title + ": " + n), $("#discount_message").html(t.coupon_info.title + ": " + n)
+                    }
+                }))
+            }
+
+            function formatPriceToNumber(a) {
+                var b = a.split('.').join('');
+                return parseInt(b.split(',').join(''));
+            }
+
+            function updateTotalPrice() {
+                var priceDiscount = 0, feeShipping = 0, feeKeep = 0;
+
+                priceDiscount = formatPriceToNumber($("#price-discount").html());
+                feeShipping = formatPriceToNumber($("#fee-shipping").html());
+                feeKeep = formatPriceToNumber($("#fee-keep").html());
+
+                var totalValue = formatPriceToNumber($("#total_value").html());
+
+                var totalShoppingPrice = totalValue + feeKeep + feeShipping - priceDiscount;
+                $(".js-final-value").html(formatCurrency(totalShoppingPrice));
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--//All 3rd parties' scripts go here-->
+        <!-- MePuzz start-->
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['MePuzzAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
+                m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://static.mepuzz.com/sdk/v2/MePuzzSDK.min.js', 'mePuzz');
+            mePuzz('setAppId', 'P6yeWgQenr');
+            mePuzz('track', 'pageview');
+        </script>
+        <!--  MePuzz end -->
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-MMT74HX');</script>
+        <!-- End Google Tag Manager-->
+
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-TN9VG7Z');</script>
+        <!-- End Google Tag Manager -->
+
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42369638-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-42369638-1');
+        </script>
+
+
+        <!-- Facebook Pixel Code -->
+        <script>
+
+            function _startFacebookPixel() {
+                !function (f, b, e, v, n, t, s) {
+                    if (f.fbq) return; n = f.fbq = function () {
+                        n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    };
+                    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+                    n.queue = []; t = b.createElement(e); t.async = !0;
+                    t.src = v; s = b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t, s)
+                }(window, document, 'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '1789154151393847');
+                fbq('track', 'PageView');
+            }
+
+            var hurasoft_late_execute = [];
+
+            hurasoft_late_execute.push({
+                name: 'fbpixel',
+                call: _startFacebookPixel
+            });
+
+        </script>
+        <noscript>
+            <img height="1" width="1" src="https://www.facebook.com/tr?id=1789154151393847&ev=PageView
+&noscript=1" />
+        </noscript>
+        <!-- End Facebook Pixel Code -->
+
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1033127020153903',
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v6.0'
+                });
+
+                FB.AppEvents.logPageView();
+
+            };
+
+        </script>
+
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=1057132111164652&autoLogAppEvents=1"></script>
+
+
+        <script>!function (s, u, b, i, z) { var r, m; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = function (e) { return e <= 6 ? 5 : r(e - 1) + r(e - 3) }, (m = function (e) { var t, n, c; 5 < e || s._subiz_init_2094850928430 || (t = "https://", t += 0 === e ? "widget." + i + ".xyz" : 1 === e ? "storage.googleapis.com" : "sbz-" + r(10 + e) + ".com", t += "/sbz/app.js?accid=" + z, n = u.createElement(b), c = u.getElementsByTagName(b)[0], n.async = 1, n.src = t, c.parentNode.insertBefore(n, c), setTimeout(m, 2e3, e + 1)) })(0)) }(window, document, "script", "subiz", "acotfmboisiatum6ae94");</script>
+
+
+        <script>
+
+            function _startFBSDK() {
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) { return; }
+                    js = d.createElement(s); js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            }
+
+
+
+            hurasoft_late_execute.push({
+                name: '_startFBSDK',
+                call: _startFBSDK
+            });
+
+            var _track_start3codes = false;
+            function start3codes() {
+                if (_track_start3codes) return;
+                _track_start3codes = true;
+                hurasoft_late_execute.forEach(function (item) {
+                    console.log("Starting " + item.name);
+                    item.call();
+                })
+            }
+
+
+            // when jquery ready
+            $(function () {
+                hurasoft_webworker.send({ type: 'delay', timeout: 3000 }, function (data) {
+                    console.log("hurasoft_webworker = " + JSON.stringify(data));
+                    start3codes();
+                });
+            });
+
+        </script>
+
+
+
+        <!--<div id="cart-fixed-2019" onclick="location.href='/gio-hang'">
+  <i class="icons icon-fixed-bag fal fa-shopping-cart"></i>
+  <p>Giỏ hàng của bạn <br><b>Có <span id="count_shopping_cart_store_2">0</span> sản phẩm</b></p>
+</div>-->
+        <div id="icon-fixed-right">
+            <!--<a href="javascript:void(0)" onclick="showPopup('popup-facebook');"><i class="icons fab fa-facebook-f"></i></a>
+  <a href="javascript:void(0)" onclick="showPopup('popup-youtube');"><i class="icons fab fa-youtube"></i></a>-->
+            <a href="https://www.facebook.com/www.hanoicomputer.vn/" target="_blank"><i class="icons fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UCIoWNINN5sJcx1zboLXZmeA" target="_blank"><i class="icons fab fa-youtube"></i></a>
+            <a href="javascript:void(0)" onclick="showPopup('popup-lien-he');"><i class="icons fas fa-envelope"></i></a>
+            <a href="javascript:void(0)" onclick="showPopup('popup-address');"><i class="icons fas fa-phone fa-flip-horizontal"></i></a>
+            <a href="/buildpc"><i class="icons fa fa-wrench"></i></a>
+            <a href="https://www.messenger.com/t/www.hanoicomputer.vn" target="_blank"><i class="icons fab fa-facebook-messenger"></i></a>
+            <a href="javascript:void(0)" id="toTop" style="display:none;" class="active"><i class="icons far fa-arrow-up"></i></a>
+        </div>
+
+
+        <div class="popup-common" id="popup-lien-he">
+            <div class="title-popup"><span>Liên hệ với chúng tôi</span><i class="close fal fa-times" onclick="closePopupCommon()"></i></div>
+            <div class="content-popup">
+                <form>
+                    <input type="text" size="50" name="contact_name" id="contact_name" autocomplete="off" placeholder="Họ và tên"
+                        class="khaipv-input" />
+                    <input type="text" size="50" name="contact_email" id="contact_email" autocomplete="off" placeholder="Email"
+                        class="khaipv-input" />
+                    <input type="text" size="50" name="contact_tel" id="contact_tel" autocomplete="off" placeholder="Số điện thoại"
+                        class="khaipv-input" />
+                    <textarea rows="8" name="contact_message" id="contact_message" style="width:100% !important;" placeholder="Nội dung liên hệ"
+                        class="khaipv-textarea"></textarea>
+                    <input type="button" class="submit-button" value="Gửi liên hệ" onclick="send_contact();" style="cursor:pointer;" />
+                    <input type="hidden" value="send" name="action" />
+                    <input type="hidden" name="return_url" value="https://www.hanoicomputer.vn/cart" />
+                </form>
+            </div>
+            <!--content-popup-->
+        </div>
+        <!--popup-->
+
+
+        <div class="popup-common" id="popup-youtube">
+            <div class="title-popup"><span>Quan tâm đến chúng tôi</span><i class="close fal fa-times" onclick="closePopupCommon()"></i></div>
+            <input type="hidden" value="https://www.youtube.com/embed/V69Le8tNPac" id="url-video-popup" />
+            <div class="content-popup" style="padding:0; height:315px;" id="content-popup-youtube">
+
+            </div>
+        </div>
+
+        <div class="popup-common" id="popup-address">
+            <div class="title-popup"><span>Hotline liên hệ mua hàng</span><i class="close fal fa-times" onclick="closePopupCommon()"></i></div>
+            <div class="content-popup" style="padding:0 20px; font-size:14px; line-height:1.6;">
+                <ul class="showroom-right-menu">
+                    <li>
+                        <span class="showroom-order">01</span>
+                        <p class="showroom-address">Số 129+131 Lê Thanh Nghị - Hai Bà Trưng - Hà Nội</p>
+                        <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 101)</b></p>
+                    </li>
+                    <li>
+                        <span class="showroom-order">02</span>
+                        <p class="showroom-address">Số 43 Thái Hà - Đống Đa - Hà Nội</p>
+                        <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 202) - (024) 35380088</b></p>
+                    </li>
+                    <li>
+                        <span class="showroom-order">03</span>
+                        <p class="showroom-address">Số 57 Nguyễn Văn Huyên - Cầu Giấy - Hà Nội</p>
+                        <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 503) - (024) 38610088</b></p>
+                    </li>
+                    <li>
+                        <span class="showroom-order">04</span>
+                        <p class="showroom-address">A1-6 Lô 8A - Lê Hồng Phong - Ngô Quyền - Hải Phòng</p>
+                        <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 301) - (022) 58830013</b></p>
+                    </li>
+                    <li>
+                        <span class="showroom-order">05</span>
+                        <p class="showroom-address">Số 511+513 Quang Trung - Hà Đông - Hà Nội</p>
+                        <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 600) - (024) 38580088</b></p>
+                    </li>
+                    <li>
+                        <span class="showroom-order">06</span>
+                        <p class="showroom-address">Số 520 Cách Mạng Tháng Tám - Quận 3 - TP. Hồ Chí Minh</p>
+                        <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">1900 1903 (máy lẻ 701) - (028) 73078877</b></p>
+                    </li>
+                    <li>
+                        <span class="showroom-order">07</span>
+                        <p class="showroom-address">Số 398 Nguyễn Văn Cừ - Long Biên - Hà Nội</p>
+                        <p class="showroom-hotline">Điện thoại: <b style="color:#ed1b24">19001903 (máy lẻ 808) - (024) 73088877</b></p>
+                    </li>
+                </ul>
+            </div>
+            <!--content-popup-->
+        </div>
+        <!--popup-->
+
+        <div class="popup-common" id="popup-facebook">
+            <div class="title-popup"><span>Quan tâm đến chúng tôi</span><i class="close fal fa-times" onclick="closePopupCommon()"></i></div>
+            <div class="content-popup" style="padding:10px 20px; font-size:14px; line-height:1.6;">
+                <div style="height:130px;">
+                    <div class="fb-page" data-href="https://www.facebook.com/www.hanoicomputer.vn/" data-width="455" data-height="70"
+                        data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/www.hanoicomputer.vn/" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/www.hanoicomputer.vn/">Fanpage</a></blockquote>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <p><i>Hãy <b class="red">Like fanpage</b> để trở thành <b class="blue">Fan của Hanoicomputer</b> ngay trong hôm nay!</i></p>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+
+
+        <div id="backgroundPopupForCart"></div>
+        <div id="popupCart">
+            <p class="note">Sản phẩm đã được thêm vào giỏ hàng</p>
+            <a href='javascript:void(0)' onclick="$('#popupCart').fadeOut(); $('#backgroundPopupForCart').fadeOut('fast');" class="button">Xem sản
+                phẩm khác</a>
+            <a href='javascript:void(0)' onclick="location.href='/cart'" class="button orange">Tiếp tục mua hàng</a>
+        </div>
+
+
+</body>
+
+</html>
+
+<!-- Load time: 0.051 seconds  / 2 mb-->
+<!-- Powered by HuraStore 7.4.5, Released: 06-May-2020 / Website: www.hurasoft.vn -->

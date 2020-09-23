@@ -14,19 +14,23 @@ class Product extends Model
         'specifications' => 'array',
     ];
 
+    // public function getSpecificationsAttribute($value){
+    //     return json_decode($value);
+    // }
+
     public function admin()
     {
-        return $this->belongTo('App\Admin');
+        return $this->belongsTo('App\Admin');
     }
 
     public function category()
     {
-        return $this->belongTo('App\Category');
+        return $this->belongsTo('App\Category');
     }
 
     public function product_type()
     {
-        return $this->belongTo('App\ProductType');
+        return $this->belongsTo('App\ProductType');
     }
 
     public function product_images()

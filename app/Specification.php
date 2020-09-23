@@ -14,6 +14,6 @@ class Specification extends Model
 
     public function product_type()
     {
-        return $this->belongTo('App\ProductType');
+        return $this->belongsTo('App\ProductType');
     }
 }
