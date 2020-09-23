@@ -13,8 +13,6 @@ data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" widt
 data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400" />
 <img src="https://github.com/hieuxc/laravel-hanoicomputer/blob/master/public/hnc/3.png" 
 data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400" />
-<img src="https://github.com/hieuxc/laravel-hanoicomputer/blob/master/public/hnc/4.png" 
-data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400" />
 <img src="https://github.com/hieuxc/laravel-hanoicomputer/blob/master/public/hnc/5ng" 
 data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400" />
 <img src="https://github.com/hieuxc/laravel-hanoicomputer/blob/master/public/hnc/6png" 
